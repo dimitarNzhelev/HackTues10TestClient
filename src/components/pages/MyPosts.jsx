@@ -13,10 +13,12 @@ const MyPosts = () => {
   const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
   const handleLogout = () => {
-    axios.get("http://159.89.212.52:5001/auth/logout").then((res) => {
-      setUser();
-      navigate("/auth/login");
-    });
+    axios
+      .get("https://lobster-app-97gsw.ondigitalocean.app/auth/logout")
+      .then((res) => {
+        setUser();
+        navigate("/auth/login");
+      });
   };
   axios.defaults.withCredentials = true;
 
@@ -24,7 +26,7 @@ const MyPosts = () => {
     let isMounted = true;
 
     axios
-      .get("http://159.89.212.52:5001/dashboard/")
+      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -34,7 +36,9 @@ const MyPosts = () => {
           setUser(res.data.user);
           if (isMounted) {
             axios
-              .get("http://159.89.212.52:5001/dashboard/myposts")
+              .get(
+                "https://lobster-app-97gsw.ondigitalocean.app/dashboard/myposts"
+              )
               .then((res) => {
                 setPosts(res.data.posts);
               })

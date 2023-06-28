@@ -13,10 +13,12 @@ const Update = () => {
   const { id } = useParams();
   console.log(id);
   const handleLogout = () => {
-    axios.get("http://159.89.212.52:5001/auth/logout").then((res) => {
-      setUser();
-      navigate("/auth/login");
-    });
+    axios
+      .get("https://lobster-app-97gsw.ondigitalocean.app/auth/logout")
+      .then((res) => {
+        setUser();
+        navigate("/auth/login");
+      });
   };
   axios.defaults.withCredentials = true;
 
@@ -24,7 +26,7 @@ const Update = () => {
     let isMounted = true;
 
     axios
-      .get("http://159.89.212.52:5001/dashboard/")
+      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -60,7 +62,7 @@ const Update = () => {
 
     axios
       .post(
-        `http://159.89.212.52:5001/dashboard/myposts/${id}/update`,
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/myposts/${id}/update`,
         formData
       )
       .then((response) => {

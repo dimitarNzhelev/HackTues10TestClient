@@ -22,10 +22,12 @@ const PostPage = () => {
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
 
   const handleLogout = () => {
-    axios.get("http://159.89.212.52:5001/auth/logout").then((res) => {
-      setUser();
-      navigate("/auth/login");
-    });
+    axios
+      .get("https://lobster-app-97gsw.ondigitalocean.app/auth/logout")
+      .then((res) => {
+        setUser();
+        navigate("/auth/login");
+      });
   };
 
   axios.defaults.withCredentials = true;
@@ -33,7 +35,7 @@ const PostPage = () => {
     let isMounted = true;
 
     axios
-      .get("http://159.89.212.52:5001/dashboard/")
+      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -41,7 +43,9 @@ const PostPage = () => {
           }
           setUser(res.data.user);
           axios
-            .get(`http://159.89.212.52:5001/dashboard/posts/${postId}`)
+            .get(
+              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/${postId}`
+            )
             .then((res) => {
               setComments(res.data.comments);
               setTotalComments(res.data.post.totalcomments);
@@ -53,7 +57,7 @@ const PostPage = () => {
 
           axios
             .get(
-              `http://159.89.212.52:5001/dashboard/posts/like/${postId}/status`
+              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/like/${postId}/status`
             )
             .then((res) => {
               setLikedState(res.data.likeStatus);
@@ -70,7 +74,9 @@ const PostPage = () => {
       });
 
     axios
-      .get(`http://159.89.212.52:5001/dashboard/posts/save/${postId}/status`)
+      .get(
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/save/${postId}/status`
+      )
       .then((res) => {
         setSavedState(res.data.savedStatus);
       })
@@ -85,7 +91,9 @@ const PostPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://159.89.212.52:5001/dashboard/posts/like/${postId}/total`)
+      .get(
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/like/${postId}/total`
+      )
       .then((response) => {
         console.log(response.data.totalLikes);
         setTotalLikes(response.data.totalLikes);
@@ -97,7 +105,9 @@ const PostPage = () => {
 
   async function like() {
     axios
-      .get(`http://159.89.212.52:5001/dashboard/posts/like/${postId}`)
+      .get(
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/like/${postId}`
+      )
       .then((res) => {
         if (res.status === 200) {
           setLikedState(!likedState);
@@ -108,15 +118,18 @@ const PostPage = () => {
 
   async function addComment(commentText) {
     axios
-      .post(`http://159.89.212.52:5001/dashboard/posts/comments/${postId}/`, {
-        postId: postId,
-        commentText: commentText,
-      })
+      .post(
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`,
+        {
+          postId: postId,
+          commentText: commentText,
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           axios
             .get(
-              `http://159.89.212.52:5001/dashboard/posts/comments/${postId}/`
+              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`
             )
             .then((res) => {
               setComments(res.data.comments);
@@ -138,12 +151,14 @@ const PostPage = () => {
 
   async function deleteCommentById(id) {
     axios
-      .delete(`http://159.89.212.52:5001/dashboard/posts/comments/${id}`)
+      .delete(
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${id}`
+      )
       .then((res) => {
         if (res.status === 200) {
           axios
             .get(
-              `http://159.89.212.52:5001/dashboard/posts/comments/${postId}/`
+              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`
             )
             .then((res) => {
               console.log(res.data);
@@ -160,7 +175,10 @@ const PostPage = () => {
 
   function deletePost() {
     axios
-      .delete("http://159.89.212.52:5001/dashboard/myposts/" + postId)
+      .delete(
+        "https://lobster-app-97gsw.ondigitalocean.app/dashboard/myposts/" +
+          postId
+      )
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
@@ -174,14 +192,17 @@ const PostPage = () => {
 
   async function updateComment(commentId, commentText) {
     axios
-      .put(`http://159.89.212.52:5001/dashboard/posts/comments/${commentId}`, {
-        commentText: commentText,
-      })
+      .put(
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${commentId}`,
+        {
+          commentText: commentText,
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           axios
             .get(
-              `http://159.89.212.52:5001/dashboard/posts/comments/${postId}/`
+              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`
             )
             .then((res) => {
               setComments(res.data.comments);
@@ -197,10 +218,13 @@ const PostPage = () => {
 
   async function save() {
     axios
-      .post(`http://159.89.212.52:5001/dashboard/posts/save/${postId}`, {
-        userid: user.id,
-        postid: postId,
-      })
+      .post(
+        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/save/${postId}`,
+        {
+          userid: user.id,
+          postid: postId,
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           setSavedState(!savedState);

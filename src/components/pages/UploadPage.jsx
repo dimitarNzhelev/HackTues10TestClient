@@ -11,10 +11,12 @@ const Upload = () => {
   const [photo, setPhoto] = useState(null);
   const navigate = useNavigate();
   const handleLogout = () => {
-    axios.get("http://159.89.212.52:5001/auth/logout").then((res) => {
-      setUser();
-      navigate("/auth/login");
-    });
+    axios
+      .get("https://lobster-app-97gsw.ondigitalocean.app/auth/logout")
+      .then((res) => {
+        setUser();
+        navigate("/auth/login");
+      });
   };
   axios.defaults.withCredentials = true;
 
@@ -22,7 +24,7 @@ const Upload = () => {
     let isMounted = true;
 
     axios
-      .get("http://159.89.212.52:5001/dashboard/")
+      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -57,7 +59,10 @@ const Upload = () => {
     }
 
     axios
-      .post("http://159.89.212.52:5001/dashboard/upload/", formData)
+      .post(
+        "https://lobster-app-97gsw.ondigitalocean.app/dashboard/upload/",
+        formData
+      )
       .then((response) => {
         if (response.status === 200) {
           navigate("/dashboard");

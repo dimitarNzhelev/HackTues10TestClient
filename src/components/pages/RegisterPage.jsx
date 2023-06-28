@@ -15,7 +15,7 @@ const RegisterComponent = ({ errors, messages }) => {
     let isMounted = true;
 
     axios
-      .get("http://159.89.212.52:5001/dashboard/")
+      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -39,7 +39,8 @@ const RegisterComponent = ({ errors, messages }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const urlWithProxy = "/http://159.89.212.52:5001/auth/register";
+    const urlWithProxy =
+      "/https://lobster-app-97gsw.ondigitalocean.app/auth/register";
 
     const data = {
       name,
