@@ -18,7 +18,6 @@ const DashboardComponent = () => {
       .then((res) => {
         if (isMounted) {
           console.log(res.data);
-          alert(res.data);
           if (res.data.user === null) {
             navigate("/auth/login");
           }
