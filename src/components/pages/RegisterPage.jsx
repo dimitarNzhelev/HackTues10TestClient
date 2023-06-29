@@ -15,7 +15,9 @@ const RegisterComponent = ({ errors, messages }) => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
+        withCredentials: true,
+      })
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -50,7 +52,7 @@ const RegisterComponent = ({ errors, messages }) => {
     };
 
     axios
-      .post(urlWithProxy, data)
+      .post(urlWithProxy, data, { withCredentials: true })
       .then((res) => {
         console.log(res);
         alert(res.data);

@@ -12,7 +12,9 @@ const Upload = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout", {
+        withCredentials: true,
+      })
       .then((res) => {
         setUser();
         navigate("/auth/login");
@@ -24,7 +26,9 @@ const Upload = () => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
+        withCredentials: true,
+      })
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -61,7 +65,8 @@ const Upload = () => {
     axios
       .post(
         "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/upload/",
-        formData
+        formData,
+        { withCredentials: true }
       )
       .then((response) => {
         if (response.status === 200) {

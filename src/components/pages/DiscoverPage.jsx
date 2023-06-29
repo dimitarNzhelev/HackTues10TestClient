@@ -14,7 +14,9 @@ const Discover = () => {
   const [posts, setPosts] = useState([]);
   const handleLogout = () => {
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout", {
+        withCredentials: true,
+      })
       .then((res) => {
         setUser();
         navigate("/auth/login");
@@ -26,7 +28,9 @@ const Discover = () => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
+        withCredentials: true,
+      })
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -37,7 +41,8 @@ const Discover = () => {
           if (isMounted) {
             axios
               .get(
-                "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts"
+                "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts",
+                { withCredentials: true }
               )
               .then((res) => {
                 setPosts(res.data.posts);

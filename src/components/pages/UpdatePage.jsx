@@ -14,7 +14,9 @@ const Update = () => {
   console.log(id);
   const handleLogout = () => {
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout", {
+        withCredentials: true,
+      })
       .then((res) => {
         setUser();
         navigate("/auth/login");
@@ -26,7 +28,9 @@ const Update = () => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
+        withCredentials: true,
+      })
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -63,7 +67,8 @@ const Update = () => {
     axios
       .post(
         `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/myposts/${id}/update`,
-        formData
+        formData,
+        { withCredentials: true }
       )
       .then((response) => {
         if (response.status === 200) {
