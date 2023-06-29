@@ -21,7 +21,6 @@ const LoginComponent = ({ errors, messages }) => {
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
-            navigate("/auth/login");
           } else {
             navigate("/dashboard");
           }
