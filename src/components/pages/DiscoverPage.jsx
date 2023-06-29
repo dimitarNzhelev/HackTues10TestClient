@@ -27,39 +27,44 @@ const Discover = () => {
   useEffect(() => {
     let isMounted = true;
 
-    axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        if (isMounted) {
-          console.log(res.data);
-          if (res.data.user == null) {
-            navigate("/auth/login");
-          }
+    const fetchUserAndPosts = async () => {
+      try {
+        const userResponse = await axios.get(
+          "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/",
+          { withCredentials: true }
+        );
 
-          setUser(res.data.user);
-          if (isMounted) {
-            axios
-              .get(
-                "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts",
-                { withCredentials: true }
-              )
-              .then((res) => {
-                console.log(res.data);
-                setPosts(res.data.posts);
-              })
-              .catch((err) => {
-                console.error(err);
-              });
-          }
+        if (!isMounted) {
+          return;
         }
-      })
-      .catch((err) => {
+
+        console.log(userResponse.data);
+        if (userResponse.data.user == null) {
+          navigate("/auth/login");
+          return;
+        }
+
+        setUser(userResponse.data.user);
+
+        const postsResponse = await axios.get(
+          "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts",
+          { withCredentials: true }
+        );
+
+        if (!isMounted) {
+          return;
+        }
+
+        console.log(postsResponse.data);
+        setPosts(postsResponse.data.posts);
+      } catch (error) {
         if (isMounted) {
-          console.log(err);
+          console.error(error);
         }
-      });
+      }
+    };
+
+    fetchUserAndPosts();
 
     return () => {
       isMounted = false;
