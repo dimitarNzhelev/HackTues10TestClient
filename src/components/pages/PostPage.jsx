@@ -23,7 +23,7 @@ const PostPage = () => {
 
   const handleLogout = () => {
     axios
-      .get("https://lobster-app-97gsw.ondigitalocean.app/auth/logout")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout")
       .then((res) => {
         setUser();
         navigate("/auth/login");
@@ -35,7 +35,7 @@ const PostPage = () => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -44,7 +44,7 @@ const PostPage = () => {
           setUser(res.data.user);
           axios
             .get(
-              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/${postId}`
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/${postId}`
             )
             .then((res) => {
               setComments(res.data.comments);
@@ -57,7 +57,7 @@ const PostPage = () => {
 
           axios
             .get(
-              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/like/${postId}/status`
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/status`
             )
             .then((res) => {
               setLikedState(res.data.likeStatus);
@@ -75,7 +75,7 @@ const PostPage = () => {
 
     axios
       .get(
-        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/save/${postId}/status`
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/save/${postId}/status`
       )
       .then((res) => {
         setSavedState(res.data.savedStatus);
@@ -92,7 +92,7 @@ const PostPage = () => {
   useEffect(() => {
     axios
       .get(
-        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/like/${postId}/total`
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/total`
       )
       .then((response) => {
         console.log(response.data.totalLikes);
@@ -106,7 +106,7 @@ const PostPage = () => {
   async function like() {
     axios
       .get(
-        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/like/${postId}`
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}`
       )
       .then((res) => {
         if (res.status === 200) {
@@ -119,7 +119,7 @@ const PostPage = () => {
   async function addComment(commentText) {
     axios
       .post(
-        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`,
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/comments/${postId}/`,
         {
           postId: postId,
           commentText: commentText,
@@ -129,7 +129,7 @@ const PostPage = () => {
         if (res.status === 200) {
           axios
             .get(
-              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/comments/${postId}/`
             )
             .then((res) => {
               setComments(res.data.comments);
@@ -152,13 +152,13 @@ const PostPage = () => {
   async function deleteCommentById(id) {
     axios
       .delete(
-        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${id}`
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/comments/${id}`
       )
       .then((res) => {
         if (res.status === 200) {
           axios
             .get(
-              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/comments/${postId}/`
             )
             .then((res) => {
               console.log(res.data);
@@ -176,7 +176,7 @@ const PostPage = () => {
   function deletePost() {
     axios
       .delete(
-        "https://lobster-app-97gsw.ondigitalocean.app/dashboard/myposts/" +
+        "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/myposts/" +
           postId
       )
       .then((response) => {
@@ -193,7 +193,7 @@ const PostPage = () => {
   async function updateComment(commentId, commentText) {
     axios
       .put(
-        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${commentId}`,
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/comments/${commentId}`,
         {
           commentText: commentText,
         }
@@ -202,7 +202,7 @@ const PostPage = () => {
         if (res.status === 200) {
           axios
             .get(
-              `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/comments/${postId}/`
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/comments/${postId}/`
             )
             .then((res) => {
               setComments(res.data.comments);
@@ -219,7 +219,7 @@ const PostPage = () => {
   async function save() {
     axios
       .post(
-        `https://lobster-app-97gsw.ondigitalocean.app/dashboard/posts/save/${postId}`,
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/save/${postId}`,
         {
           userid: user.id,
           postid: postId,

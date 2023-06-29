@@ -12,7 +12,7 @@ const DashboardComponent = () => {
     let isMounted = true; // add this line
 
     axios
-      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           // add this line
@@ -38,7 +38,7 @@ const DashboardComponent = () => {
 
   const handleLogout = () => {
     axios
-      .get("https://lobster-app-97gsw.ondigitalocean.app/auth/logout")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout")
       .then((res) => {
         setUser();
         navigate("/auth/login");
