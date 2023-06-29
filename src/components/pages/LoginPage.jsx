@@ -6,6 +6,7 @@ import axios from "axios";
 const LoginComponent = ({ errors, messages }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
@@ -14,7 +15,9 @@ const LoginComponent = ({ errors, messages }) => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", { withCredentials: true })
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
+        withCredentials: true,
+      })
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -44,7 +47,8 @@ const LoginComponent = ({ errors, messages }) => {
       email: email,
       password: password,
     };
-    console.log(data);
+
+    setLoading(true);
 
     axios
       .post(urlWithProxy, data, { withCredentials: true })
@@ -54,9 +58,11 @@ const LoginComponent = ({ errors, messages }) => {
         } else {
           console.log("not logged in");
         }
+        setLoading(false);
       })
       .catch((err) => {
         alert(err);
+        setLoading(false);
       });
   }
 
@@ -105,8 +111,12 @@ const LoginComponent = ({ errors, messages }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" className="w-100 p-2">
-          Login
+        <Button
+          variant="primary"
+          type="submit"
+          className="w-100 p-2"
+          disabled={loading}>
+          {loading ? "Loading..." : "Login"}
         </Button>
         <Form.Text className="text-light mt-3">
           Don't have an account?{" "}
