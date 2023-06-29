@@ -29,32 +29,30 @@ const Discover = () => {
 
     const fetchUserAndPosts = async () => {
       try {
-        const userResponse = await axios.get(
-          "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/",
-          { withCredentials: true }
-        );
+        const [userResponse, postsResponse] = await Promise.all([
+          axios.get(
+            "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/",
+            {
+              withCredentials: true,
+            }
+          ),
+          axios.get(
+            "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts",
+            { withCredentials: true }
+          ),
+        ]);
 
         if (!isMounted) {
           return;
         }
 
         console.log(userResponse.data);
-        if (userResponse.data.user == null) {
+        if (userResponse.data.user === null) {
           navigate("/auth/login");
           return;
         }
 
         setUser(userResponse.data.user);
-
-        const postsResponse = await axios.get(
-          "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts",
-          { withCredentials: true }
-        );
-
-        if (!isMounted) {
-          return;
-        }
-
         console.log(postsResponse.data);
         setPosts(postsResponse.data.posts);
       } catch (error) {
