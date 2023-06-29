@@ -9,7 +9,7 @@ const DashboardComponent = () => {
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    let isMounted = true; // add this line
+    let isMounted = true;
 
     axios
       .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
@@ -17,7 +17,6 @@ const DashboardComponent = () => {
       })
       .then((res) => {
         if (isMounted) {
-          // add this line
           if (res.data.user === null) {
             navigate("/auth/login");
           }
@@ -28,14 +27,13 @@ const DashboardComponent = () => {
       })
       .catch((err) => {
         if (isMounted) {
-          // add this line
           console.log(err);
         }
       });
 
     return () => {
       isMounted = false;
-    }; // add this line
+    };
   }, []);
 
   const handleLogout = () => {
