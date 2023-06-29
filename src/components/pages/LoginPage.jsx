@@ -14,7 +14,7 @@ const LoginComponent = ({ errors, messages }) => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", { withCredentials: true })
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
