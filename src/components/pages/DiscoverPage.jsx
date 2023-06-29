@@ -34,8 +34,7 @@ const Discover = () => {
       .then((res) => {
         if (isMounted) {
           console.log(res.data);
-          alert(res.data);
-          if (res.data.user === null) {
+          if (res.data.user == null) {
             navigate("/auth/login");
           }
 
@@ -48,7 +47,6 @@ const Discover = () => {
               )
               .then((res) => {
                 console.log(res.data);
-                alert(res.data);
                 setPosts(res.data.posts);
               })
               .catch((err) => {

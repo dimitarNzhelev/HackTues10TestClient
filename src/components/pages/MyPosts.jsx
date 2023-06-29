@@ -34,7 +34,6 @@ const MyPosts = () => {
       .then((res) => {
         if (isMounted) {
           console.log(res.data);
-          alert(res.data);
           if (res.data.user === null) {
             alert(res);
             navigate("/auth/login");

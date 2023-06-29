@@ -54,7 +54,6 @@ const LoginComponent = ({ errors, messages }) => {
       .post(urlWithProxy, data, { withCredentials: true })
       .then((res) => {
         console.log(res.data);
-        alert(res.data);
         if (res.data.user.isverified) {
           navigate("/dashboard");
         } else {

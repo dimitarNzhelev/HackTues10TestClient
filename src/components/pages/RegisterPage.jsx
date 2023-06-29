@@ -55,7 +55,6 @@ const RegisterComponent = ({ errors, messages }) => {
       .post(urlWithProxy, data, { withCredentials: true })
       .then((res) => {
         console.log(res);
-        alert(res.data);
       })
       .catch((err) => {
         console.error(err);
