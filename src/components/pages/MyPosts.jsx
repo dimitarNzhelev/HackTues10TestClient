@@ -22,43 +22,25 @@ const MyPosts = () => {
         navigate("/auth/login");
       });
   };
+
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/myposts", {
         withCredentials: true,
       })
       .then((res) => {
-        if (isMounted) {
-          console.log(res.data);
-          if (res.data.user === null) {
-            alert(res);
-            navigate("/auth/login");
-          }
-
-          setUser(res.data.user);
-          if (isMounted) {
-            axios
-              .get(
-                "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/myposts",
-                { withCredentials: true }
-              )
-              .then((res) => {
-                setPosts(res.data.posts);
-              })
-              .catch((err) => {
-                console.error(err);
-              });
-          }
+        if (res.data.posts) {
+          setPosts(res.data.posts);
+        } else {
+          navigate("/auth/login");
         }
       })
       .catch((err) => {
-        if (isMounted) {
-          console.log(err);
-        }
+        console.error(err);
       });
 
     return () => {
