@@ -14,7 +14,7 @@ const LoginComponent = ({ errors, messages }) => {
     let isMounted = true;
 
     axios
-      .get("https://lobster-app-97gsw.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
@@ -38,7 +38,7 @@ const LoginComponent = ({ errors, messages }) => {
   function onSubmit(e) {
     e.preventDefault();
     const urlWithProxy =
-      "https://lobster-app-97gsw.ondigitalocean.app/auth/login";
+      "https://lobster-app-2-2vuam.ondigitalocean.app/auth/login";
 
     const data = {
       email: email,
