@@ -36,46 +36,48 @@ const PostPage = () => {
   useEffect(() => {
     let isMounted = true;
 
-    axios.get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/"),
-      { withCredentials: true }
-        .then((res) => {
-          if (isMounted) {
-            if (res.data.user === null) {
-              navigate("/auth/login");
-            }
-            setUser(res.data.user);
-            axios
-              .get(
-                `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/${postId}`,
-                { withCredentials: true }
-              )
-              .then((res) => {
-                setComments(res.data.comments);
-                setTotalComments(res.data.post.totalcomments);
-                setAuthor(res.data.user);
-              })
-              .catch((err) => {
-                console.error(err);
-              });
+    axios
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (isMounted) {
+          if (res.data.user === null) {
+            navigate("/auth/login");
+          }
+          setUser(res.data.user);
+          axios
+            .get(
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/${postId}`,
+              { withCredentials: true }
+            )
+            .then((res) => {
+              setComments(res.data.comments);
+              setTotalComments(res.data.post.totalcomments);
+              setAuthor(res.data.user);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
 
-            axios
-              .get(
-                `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/status`,
-                { withCredentials: true }
-              )
-              .then((res) => {
-                setLikedState(res.data.likeStatus);
-              })
-              .catch((err) => {
-                console.error(err);
-              });
-          }
-        })
-        .catch((err) => {
-          if (isMounted) {
-            console.log(err);
-          }
-        });
+          axios
+            .get(
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/status`,
+              { withCredentials: true }
+            )
+            .then((res) => {
+              setLikedState(res.data.likeStatus);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        }
+      })
+      .catch((err) => {
+        if (isMounted) {
+          console.log(err);
+        }
+      });
 
     axios
       .get(
