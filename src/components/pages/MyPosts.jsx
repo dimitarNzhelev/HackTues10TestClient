@@ -33,14 +33,18 @@ const MyPosts = () => {
         withCredentials: true,
       })
       .then((res) => {
-        if (res.data.posts) {
-          setPosts(res.data.posts);
-        } else {
-          navigate("/auth/login");
+        if (isMounted) {
+          if (res.data.posts) {
+            setPosts(res.data.posts);
+          } else {
+            navigate("/auth/login");
+          }
         }
       })
       .catch((err) => {
-        console.error(err);
+        if (isMounted) {
+          console.error(err);
+        }
       });
 
     return () => {
