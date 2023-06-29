@@ -27,33 +27,24 @@ const Discover = () => {
   useEffect(() => {
     let isMounted = true;
 
-    const fetchUserAndPosts = async () => {
+    const fetchPosts = async () => {
       try {
-        const [userResponse, postsResponse] = await Promise.all([
-          axios.get(
-            "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/",
-            {
-              withCredentials: true,
-            }
-          ),
-          axios.get(
-            "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts",
-            { withCredentials: true }
-          ),
-        ]);
+        const postsResponse = await axios.get(
+          "https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts",
+          { withCredentials: true }
+        );
 
         if (!isMounted) {
           return;
         }
 
-        console.log(userResponse.data);
-        if (userResponse.data.user === null) {
+        console.log(postsResponse.data);
+
+        if (postsResponse.data.posts == null) {
           navigate("/auth/login");
           return;
         }
 
-        setUser(userResponse.data.user);
-        console.log(postsResponse.data);
         setPosts(postsResponse.data.posts);
       } catch (error) {
         if (isMounted) {
@@ -62,7 +53,7 @@ const Discover = () => {
       }
     };
 
-    fetchUserAndPosts();
+    fetchPosts();
 
     return () => {
       isMounted = false;
