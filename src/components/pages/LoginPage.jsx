@@ -47,7 +47,7 @@ const LoginComponent = ({ errors, messages }) => {
     console.log(data);
 
     axios
-      .post(urlWithProxy, data)
+      .post(urlWithProxy, data, { withCredentials: true })
       .then((res) => {
         if (res.data.user.isverified) {
           navigate("/dashboard");
