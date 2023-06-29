@@ -12,7 +12,7 @@ const DashboardComponent = () => {
     let isMounted = true; // add this line
 
     axios
-      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/")
+      .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", { withCredentials: true })
       .then((res) => {
         if (isMounted) {
           // add this line
