@@ -55,12 +55,22 @@ const RegisterComponent = ({ errors, messages }) => {
       .then((res) => {
         if (res.data) {
           console.log(res.data);
-          alert(res.data);
+
+          if (res.data.errors) {
+            const errors = res.data.errors.map((err) => err.msg).join("\n");
+            alert(errors);
+          }
         }
       })
       .catch((err) => {
         console.error(err);
-        alert(err);
+        if (err.response) {
+          alert(err.response.data.message);
+        } else if (err.request) {
+          alert("Request was made but no response was received");
+        } else {
+          alert("Something went wrong");
+        }
       });
   };
 
