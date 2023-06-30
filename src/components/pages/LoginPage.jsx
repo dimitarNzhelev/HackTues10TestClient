@@ -61,6 +61,7 @@ const LoginComponent = ({ errors, messages }) => {
         setLoading(false);
       })
       .catch((err) => {
+        console.log(err);
         alert(err);
         setLoading(false);
       });
