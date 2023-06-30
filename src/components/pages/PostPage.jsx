@@ -86,7 +86,6 @@ const PostPage = () => {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res.data.savedStatus);
         setSavedState(res.data.savedStatus);
       })
       .catch((err) => {
@@ -243,8 +242,8 @@ const PostPage = () => {
       )
       .then((res) => {
         if (res.status === 200) {
+          alert(savedState ? "unsaved" : "saved");
           setSavedState(!savedState);
-          alert("saved/unsaved successfully");
         }
       })
       .catch((err) => console.log(err));
