@@ -125,6 +125,9 @@ const Discover = () => {
                     <Typography variant="body2" color="text.secondary">
                       {post.description}
                     </Typography>
+                    <Typography gutterBottom variant="h6" component="div">
+                      Author: {post.author}
+                    </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
