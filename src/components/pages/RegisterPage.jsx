@@ -64,12 +64,11 @@ const RegisterComponent = ({ errors, messages }) => {
         }
       })
       .catch((err) => {
-        const errorMessages = err.response.data.errors
-          .map((error) => error.msg)
-          .join("\n");
-        alert(errorMessages);
         if (err.response) {
-          alert(err.response.data.message);
+          const errorMessages = err.response.data.errors
+            .map((error) => error.msg)
+            .join("\n");
+          alert(errorMessages);
         } else if (err.request) {
           alert("Request was made but no response was received");
         } else {

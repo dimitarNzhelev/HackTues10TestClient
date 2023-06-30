@@ -89,17 +89,20 @@ const Update = () => {
         style={{
           padding: 10,
         }}>
-        <Navbar.Brand>Add Post</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link onClick={() => navigate("/dashboard")}>Dashboard</Nav.Link>
+          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+
           <Nav.Link onClick={() => navigate("/dashboard/discover")}>
-            Discover
+            Discover Posts
           </Nav.Link>
           <Nav.Link onClick={() => navigate("/dashboard/savedposts")}>
             Saved Posts
           </Nav.Link>
-          <Nav.Link onClick={() => navigate("/dashboard/myposts")}>
+          <Navbar.Brand onClick={() => navigate("/dashboard/myposts")}>
             My Posts
+          </Navbar.Brand>
+          <Nav.Link onClick={() => navigate("/dashboard/upload")}>
+            Add Post
           </Nav.Link>
         </Nav>
         <Nav>
