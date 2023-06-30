@@ -54,11 +54,12 @@ const RegisterComponent = ({ errors, messages }) => {
       .post(urlWithProxy, data, { withCredentials: true })
       .then((res) => {
         if (res.data) {
+          console.log(res.data);
           alert(res.data);
         }
       })
       .catch((err) => {
-        console.error(err.data.errors);
+        console.error(err);
         alert(err);
       });
   };
