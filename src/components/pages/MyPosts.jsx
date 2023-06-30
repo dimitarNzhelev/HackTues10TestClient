@@ -93,7 +93,7 @@ const MyPosts = () => {
           alignItems: "start",
         }}
         className="bg-dark">
-        {posts &&
+        {posts && posts.length > 0 ? (
           posts.map((post) => {
             return (
               <Card
@@ -126,7 +126,10 @@ const MyPosts = () => {
                 </CardActionArea>
               </Card>
             );
-          })}
+          })
+        ) : (
+          <h1 style={{ color: "#fff" }}>There are no posts</h1>
+        )}
       </div>
     </div>
   );
