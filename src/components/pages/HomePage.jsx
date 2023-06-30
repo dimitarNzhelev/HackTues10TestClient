@@ -53,27 +53,33 @@ const DashboardComponent = () => {
       <Navbar
         bg="secondary"
         variant="dark"
+        expand="lg"
         style={{
           padding: 10,
         }}>
         <Navbar.Brand href="/dashboard">Dashboard</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link onClick={() => navigate("/dashboard/discover")}>
-            Discover Posts
-          </Nav.Link>
-          <Nav.Link onClick={() => navigate("/dashboard/savedposts")}>
-            Saved Posts
-          </Nav.Link>
-          <Nav.Link onClick={() => navigate("/dashboard/myposts")}>
-            My Posts
-          </Nav.Link>
-          <Nav.Link onClick={() => navigate("/dashboard/upload")}>
-            Add Post
-          </Nav.Link>
-        </Nav>
-        <Nav>
-          <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-        </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          {" "}
+          // the collapsible content
+          <Nav className="mr-auto">
+            <Nav.Link onClick={() => navigate("/dashboard/discover")}>
+              Discover Posts
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/dashboard/savedposts")}>
+              Saved Posts
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/dashboard/myposts")}>
+              My Posts
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/dashboard/upload")}>
+              Add Post
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
       <Container
         className=" py-3 text-white m-0 bg-dark"
