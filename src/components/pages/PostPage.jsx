@@ -303,9 +303,9 @@ const PostPage = () => {
           <div className="container bg-dark" style={{ width: "100%" }}>
             <div
               style={{
+                width: "100%",
                 marginLeft: "10%",
                 marginBottom: "50px",
-                width: "100%",
               }}
               className="bg-dark">
               <p style={{ color: "white" }}>Description:</p>
