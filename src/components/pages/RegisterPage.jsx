@@ -59,8 +59,7 @@ const RegisterComponent = ({ errors, messages }) => {
             const errors = res.data.errors.map((err) => err.msg).join("\n");
             alert(errors);
           } else {
-            console.log(res.data);
-            alert(res.data.message);
+            alert(res.data);
           }
         }
       })
