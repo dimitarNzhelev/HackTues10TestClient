@@ -294,13 +294,12 @@ const PostPage = () => {
         className="bg-dark split"
         style={{
           padding: "2%",
-          width: "100%",
         }}>
         <div
           className="col-lg-6 col-md-6 col-sm-12 bg-dark"
           style={{ width: "100%" }}>
           <h1 style={{ color: "white" }}>{post.caption}</h1>
-          <div className="container bg-dark" style={{ width: "100%" }}>
+          <div className="container bg-dark">
             <div
               style={{
                 alignSelf: "center",
@@ -380,13 +379,13 @@ const PostPage = () => {
           </div>
         </div>
         <div
-          className="col-lg-6 col-md-6 col-sm-12 bg-dark"
+          className="col-lg-6 col-md-6 col-sm-12 bg-dark imageContainer"
           style={{ width: "100%", marginBottom: "2%" }}>
           <Image
-            className="post-image imageContainer"
+            className="post-image "
             src={post.imageUrl}
             alt="Post"
-            style={{ borderRadius: 5, maxWidth: "100%" }}
+            style={{ borderRadius: 10, maxWidth: "100%" }}
           />
         </div>
       </div>
