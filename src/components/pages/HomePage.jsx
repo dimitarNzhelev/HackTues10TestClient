@@ -57,11 +57,9 @@ const DashboardComponent = () => {
         style={{
           padding: 10,
         }}>
-        <Navbar.Brand href="/dashboard">Dashboard</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          {" "}
-          // the collapsible content
+          <Navbar.Brand href="/dashboard">Dashboard</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link onClick={() => navigate("/dashboard/discover")}>
               Discover Posts

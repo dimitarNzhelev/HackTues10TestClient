@@ -261,28 +261,32 @@ const PostPage = () => {
       <Navbar
         bg="secondary"
         variant="dark"
+        expand="lg"
         style={{
           padding: 10,
         }}>
-        <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
 
-          <Navbar.Brand onClick={() => navigate("/dashboard/discover")}>
-            Discover Posts
-          </Navbar.Brand>
-          <Nav.Link onClick={() => navigate("/dashboard/savedposts")}>
-            Saved Posts
-          </Nav.Link>
-          <Nav.Link onClick={() => navigate("/dashboard/myposts")}>
-            My Posts
-          </Nav.Link>
-          <Nav.Link onClick={() => navigate("/dashboard/upload")}>
-            Add Post
-          </Nav.Link>
-        </Nav>
-        <Nav>
-          <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-        </Nav>
+            <Navbar.Brand onClick={() => navigate("/dashboard/discover")}>
+              Discover Posts
+            </Navbar.Brand>
+            <Nav.Link onClick={() => navigate("/dashboard/savedposts")}>
+              Saved Posts
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/dashboard/myposts")}>
+              My Posts
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/dashboard/upload")}>
+              Add Post
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
 
       <div
