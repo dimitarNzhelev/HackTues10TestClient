@@ -20,7 +20,7 @@ const CommentPopup = ({ show, handleClose, handleSave }) => {
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Comment</Form.Label>
+            <Form.Label style={{ color: "black" }}>Comment</Form.Label>
             <Form.Control
               type="text"
               value={commentText}
