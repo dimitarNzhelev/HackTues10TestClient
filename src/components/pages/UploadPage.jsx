@@ -156,6 +156,7 @@ const Upload = () => {
               required
               className="mb-3 p-3 bg-secondary text-white"
               onChange={(e) => setPhoto(e.target.files[0])}
+              accept=".jpg, .jpeg, .png, .gif"
             />
           </Form.Group>
 
