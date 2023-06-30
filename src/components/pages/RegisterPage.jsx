@@ -64,7 +64,7 @@ const RegisterComponent = ({ errors, messages }) => {
         }
       })
       .catch((err) => {
-        console.error(err.response);
+        console.error(JSON.stringify(err.response.data));
         if (err.response) {
           alert(err.response.data.message);
         } else if (err.request) {
