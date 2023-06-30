@@ -7,18 +7,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-  root: {
-    "&:hover": {
-      boxShadow: "0 5px 15px rgba(0,0,0,0.3)", // add the shadow effect you like
-    },
-  },
-});
+import "./card.css";
 
 const Discover = () => {
-  const classes = useStyles();
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const handleLogout = () => {
@@ -109,7 +100,7 @@ const Discover = () => {
           posts.map((post) => {
             return (
               <Card
-                className={classes.root}
+                className="cardHover"
                 sx={{
                   maxWidth: 345,
                   margin: "1%",
