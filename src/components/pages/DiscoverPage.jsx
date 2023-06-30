@@ -61,7 +61,7 @@ const Discover = () => {
   }, []);
 
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ height: "100%" }} className="bg-dark">
       <Navbar
         bg="secondary"
         variant="dark"
@@ -95,7 +95,8 @@ const Discover = () => {
           flexWrap: "wrap",
           justifyContent: "space-around",
           alignItems: "start",
-        }}>
+        }}
+        className="bg-dark">
         {posts &&
           posts.map((post) => {
             return (

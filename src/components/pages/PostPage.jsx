@@ -286,7 +286,7 @@ const PostPage = () => {
       </Navbar>
 
       <div
-        className="content"
+        className="content bg-dark"
         style={{
           display: "flex",
           justifyContent: "space-between",

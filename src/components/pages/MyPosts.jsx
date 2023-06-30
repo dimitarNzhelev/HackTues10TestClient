@@ -87,7 +87,8 @@ const MyPosts = () => {
           flexWrap: "wrap",
           justifyContent: "space-around",
           alignItems: "start",
-        }}>
+        }}
+        className="bg-dark">
         {posts &&
           posts.map((post) => {
             return (

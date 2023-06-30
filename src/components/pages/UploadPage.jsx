@@ -106,7 +106,7 @@ const Upload = () => {
           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
         </Nav>
       </Navbar>
-      <Container className="d-flex flex-column align-items-center justify-content-center py-3 text-white">
+      <Container className="d-flex flex-column align-items-center justify-content-center py-3 text-white bg-dark">
         <h2>Upload Image</h2>
         <Form
           onSubmit={onSubmit}
