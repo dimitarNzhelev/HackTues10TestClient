@@ -292,21 +292,21 @@ const PostPage = () => {
       <div
         className="content bg-dark row"
         style={{
-          margin: "2%",
+          // padding: "2%",
           width: "100%",
         }}>
         <div
-          className="col-lg-6 col-md-6 col-sm-12  bg-dark"
+          className="col-lg-6 col-md-6 col-sm-12 bg-dark"
           style={{ width: "100%" }}>
           <h1 style={{ color: "white" }}>{post.caption}</h1>
-          <div className="container" style={{ width: "100%" }}>
+          <div className="container bg-dark" style={{ width: "100%" }}>
             <div
               style={{
                 marginLeft: "10%",
                 marginBottom: "50px",
                 width: "100%",
               }}
-              className=" bg-dark">
+              className="bg-dark">
               <p style={{ color: "white" }}>Description:</p>
               <p style={{ color: "white" }}>{post.description}</p>
               <p style={{ color: "white" }} id="total-likes">
@@ -380,7 +380,7 @@ const PostPage = () => {
           </div>
         </div>
         <div
-          className="col-lg-6 col-md-6 col-sm-12  bg-dark"
+          className="col-lg-6 col-md-6 col-sm-12 bg-dark"
           style={{ width: "100%" }}>
           <Image
             className="post-image"
