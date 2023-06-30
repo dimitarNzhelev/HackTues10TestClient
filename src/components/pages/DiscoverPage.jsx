@@ -68,8 +68,9 @@ const Discover = () => {
         style={{
           padding: 10,
         }}>
-        <Nav.Link href="/dashboard">Dashboard</Nav.Link>
         <Nav className="mr-auto">
+          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+
           <Navbar.Brand onClick={() => navigate("/dashboard/discover")}>
             Discover Posts
           </Navbar.Brand>
