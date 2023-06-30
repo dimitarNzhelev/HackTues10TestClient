@@ -57,13 +57,14 @@ const RegisterComponent = ({ errors, messages }) => {
           console.log(res.data);
 
           if (res.data.errors) {
+            console.log(res.data.errors);
             const errors = res.data.errors.map((err) => err.msg).join("\n");
             alert(errors);
           }
         }
       })
       .catch((err) => {
-        console.error(err);
+        console.error(err.data.errors);
         if (err.response) {
           alert(err.response.data.message);
         } else if (err.request) {
