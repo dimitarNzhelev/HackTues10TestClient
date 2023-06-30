@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Form, Image, Button } from "react-bootstrap";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
+import "./post.css";
 import CommentPopup from "../CommentPopUp";
 const PostPage = () => {
   const { postId } = useParams();
@@ -291,12 +292,10 @@ const PostPage = () => {
 
       <div
         className="content bg-dark row"
-        style={
-          {
-            // padding: "2%",
-            // width: "100%",
-          }
-        }>
+        style={{
+          // padding: "2%",
+          width: "100%",
+        }}>
         <div
           className="col-lg-6 col-md-6 col-sm-12 bg-dark"
           style={{ width: "100%" }}>
