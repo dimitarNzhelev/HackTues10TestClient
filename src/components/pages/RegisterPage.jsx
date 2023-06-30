@@ -53,7 +53,9 @@ const RegisterComponent = ({ errors, messages }) => {
     axios
       .post(urlWithProxy, data, { withCredentials: true })
       .then((res) => {
-        console.log(res);
+        if (res.data) {
+          alert(res.data);
+        }
       })
       .catch((err) => {
         console.error(err);
