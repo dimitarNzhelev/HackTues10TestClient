@@ -291,7 +291,7 @@ const PostPage = () => {
       </Navbar>
 
       <div
-        className="bg-dark"
+        className="bg-dark split"
         style={{
           padding: "2%",
           width: "100%",
@@ -383,7 +383,7 @@ const PostPage = () => {
           className="col-lg-6 col-md-6 col-sm-12 bg-dark"
           style={{ width: "100%", marginBottom: "2%" }}>
           <Image
-            className="post-image"
+            className="post-image imageContainer"
             src={post.imageUrl}
             alt="Post"
             style={{ borderRadius: 5, maxWidth: "100%" }}
