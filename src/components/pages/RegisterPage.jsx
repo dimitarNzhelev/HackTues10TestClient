@@ -64,7 +64,10 @@ const RegisterComponent = ({ errors, messages }) => {
         }
       })
       .catch((err) => {
-        console.error(err.response.data.errors);
+        const errorMessages = err.response.data.errors
+          .map((error) => error.msg)
+          .join("\n");
+        alert(errorMessages);
         if (err.response) {
           alert(err.response.data.message);
         } else if (err.request) {
@@ -128,7 +131,7 @@ const RegisterComponent = ({ errors, messages }) => {
           Register
         </Button>
         <Form.Text className="text-light mt-3">
-          Already have an account?{" "}
+          Already have an account?
           <a href="/auth/login" className="text-primary">
             Login
           </a>
