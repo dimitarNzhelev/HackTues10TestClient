@@ -58,7 +58,7 @@ const RegisterComponent = ({ errors, messages }) => {
         }
       })
       .catch((err) => {
-        console.error(err);
+        console.error(err.data.errors);
         alert(err);
       });
   };
