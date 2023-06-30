@@ -86,7 +86,6 @@ const PostPage = () => {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res.data);
         console.log(res.data.savedStatus);
         setSavedState(res.data.savedStatus);
       })
@@ -106,7 +105,6 @@ const PostPage = () => {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response.data.totalLikes);
         setTotalLikes(response.data.totalLikes);
       })
       .catch((err) => {
@@ -159,7 +157,6 @@ const PostPage = () => {
   }
 
   const handleSaveComment = (commentText) => {
-    console.log(commentText);
     addComment(commentText);
   };
 
@@ -177,7 +174,6 @@ const PostPage = () => {
               { withCredentials: true }
             )
             .then((res) => {
-              console.log(res.data);
               setComments(res.data.comments);
               setTotalComments(res.data.totalComments);
             })
@@ -258,8 +254,6 @@ const PostPage = () => {
     navigate("/dashboard/post/update/" + id);
   }
 
-  console.log(user);
-  console.log(author);
   return post ? (
     <div style={{ height: "100%" }}>
       <Navbar
