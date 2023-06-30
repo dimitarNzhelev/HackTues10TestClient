@@ -315,7 +315,10 @@ const PostPage = () => {
               onClick={() => setShowPopup(true)}>
               <CommentPopup
                 show={showPopup}
-                handleClose={() => setShowPopup(false)}
+                handleClose={() => {
+                  console.log("HANDLE CLOSE");
+                  setShowPopup(false);
+                }}
                 handleSave={handleSaveComment}
               />
               Add comment
