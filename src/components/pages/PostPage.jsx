@@ -246,6 +246,7 @@ const PostPage = () => {
       .then((res) => {
         if (res.status === 200) {
           setSavedState(!savedState);
+          alert("saved/unsaved successfully");
         }
       })
       .catch((err) => console.log(err));
@@ -314,6 +315,9 @@ const PostPage = () => {
               </p>
               <p style={{ color: "white" }}>
                 Liked: {likedState ? "yep" : "nope"}
+              </p>
+              <p style={{ color: "while" }}>
+                Saved: {savedState ? "yep" : "nope"}
               </p>
               <p style={{ color: "white" }}>
                 Posted by: {author && author.name}
