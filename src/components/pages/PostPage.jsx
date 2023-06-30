@@ -310,6 +310,8 @@ const PostPage = () => {
               </p>
               <p style={{ color: "white" }}>
                 Liked: {likedState ? "yep" : "nope"}
+              </p>
+              <p style={{ color: "white" }}>
                 Saved: {savedState ? "yep" : "nope"}
               </p>
               <p style={{ color: "white" }}>
