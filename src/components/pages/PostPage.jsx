@@ -293,11 +293,17 @@ const PostPage = () => {
         className="content bg-dark row"
         style={{
           padding: "2%",
+          width: "100%",
         }}>
-        <div className="col-lg-6 col-md-6 col-sm-12">
+        <div className="col-lg-6 col-md-6 col-sm-12" style={{ width: "100%" }}>
           <h1 style={{ color: "white" }}>{post.caption}</h1>
-          <div className="container">
-            <div style={{ marginLeft: "10%", marginBottom: "50px" }}>
+          <div className="container" style={{ width: "100%" }}>
+            <div
+              style={{
+                marginLeft: "10%",
+                marginBottom: "50px",
+                width: "100%",
+              }}>
               <p style={{ color: "white" }}>Description:</p>
               <p style={{ color: "white" }}>{post.description}</p>
               <p style={{ color: "white" }} id="total-likes">
@@ -370,7 +376,7 @@ const PostPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-6 col-md-6 col-sm-12">
+        <div className="col-lg-6 col-md-6 col-sm-12" style={{ width: "100%" }}>
           <Image
             className="post-image"
             src={post.imageUrl}
@@ -386,6 +392,7 @@ const PostPage = () => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
+            width: "100%",
           }}>
           {comments.map((comment) => (
             <div
