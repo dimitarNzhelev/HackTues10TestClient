@@ -304,7 +304,7 @@ const PostPage = () => {
             <div
               style={{
                 width: "100%",
-                marginLeft: "10%",
+                alignSelf: "center",
                 marginBottom: "50px",
               }}
               className="bg-dark">
