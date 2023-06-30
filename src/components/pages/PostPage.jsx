@@ -290,96 +290,98 @@ const PostPage = () => {
       </Navbar>
 
       <div
-        className="content bg-dark"
+        className="content bg-dark row"
         style={{
-          display: "flex",
-          justifyContent: "space-between",
           padding: "2%",
         }}>
-        <h1 style={{ color: "white" }}>{post.caption}</h1>
-        <div className="container">
-          <div
-            style={{ width: "50%", marginLeft: "10%", marginBottom: "50px" }}>
-            <p style={{ color: "white" }}>Description:</p>
-            <p style={{ color: "white" }}>{post.description}</p>
-            <p style={{ color: "white" }} id="total-likes">
-              Total likes: {totalLikes}
-            </p>
-            <p style={{ color: "white" }} id="totalcomments">
-              Total comments: {totalComments}
-            </p>
-            <p style={{ color: "white" }}>
-              Liked: {likedState ? "yep" : "nope"}
-            </p>
-            <p style={{ color: "white" }}>Posted by: {author && author.name}</p>
-            <a href="/dashboard">Back to dashboard</a>
-            <Button
-              className="comment-button"
-              style={{ margin: "2%" }}
-              onClick={() => setShowPopup(true)}>
-              Add comment
-            </Button>
+        <div className="col-lg-6 col-md-6 col-sm-12">
+          <h1 style={{ color: "white" }}>{post.caption}</h1>
+          <div className="container">
+            <div style={{ marginLeft: "10%", marginBottom: "50px" }}>
+              <p style={{ color: "white" }}>Description:</p>
+              <p style={{ color: "white" }}>{post.description}</p>
+              <p style={{ color: "white" }} id="total-likes">
+                Total likes: {totalLikes}
+              </p>
+              <p style={{ color: "white" }} id="totalcomments">
+                Total comments: {totalComments}
+              </p>
+              <p style={{ color: "white" }}>
+                Liked: {likedState ? "yep" : "nope"}
+              </p>
+              <p style={{ color: "white" }}>
+                Posted by: {author && author.name}
+              </p>
+              <a href="/dashboard">Back to dashboard</a>
+              <Button
+                className="comment-button"
+                style={{ margin: "2%" }}
+                onClick={() => setShowPopup(true)}>
+                Add comment
+              </Button>
 
-            <CommentPopup
-              show={showPopup}
-              handleClose={() => {
-                setShowPopup(false);
-              }}
-              handleSave={handleSaveComment}
-            />
+              <CommentPopup
+                show={showPopup}
+                handleClose={() => {
+                  setShowPopup(false);
+                }}
+                handleSave={handleSaveComment}
+              />
 
-            <Button
-              className="comment-button"
-              style={{ margin: "2%" }}
-              onClick={() => {
-                navigator.clipboard.writeText(post.imageUrl).then(() => {
-                  alert("Image URL copied to clipboard :)");
-                });
-              }}>
-              Share
-            </Button>
-            <Button
-              className="comment-button"
-              style={{ margin: "2%" }}
-              onClick={() => like()}>
-              Like
-            </Button>
-            <Button
-              className="comment-button"
-              style={{ margin: "2%" }}
-              onClick={() => save()}>
-              Save
-            </Button>
+              <Button
+                className="comment-button"
+                style={{ margin: "2%" }}
+                onClick={() => {
+                  navigator.clipboard.writeText(post.imageUrl).then(() => {
+                    alert("Image URL copied to clipboard :)");
+                  });
+                }}>
+                Share
+              </Button>
+              <Button
+                className="comment-button"
+                style={{ margin: "2%" }}
+                onClick={() => like()}>
+                Like
+              </Button>
+              <Button
+                className="comment-button"
+                style={{ margin: "2%" }}
+                onClick={() => save()}>
+                Save
+              </Button>
 
-            {author && user && author.id === user.id && (
-              <>
-                <Button
-                  className="comment-button"
-                  style={{ margin: "2%" }}
-                  onClick={() => updatePost(post.id)}>
-                  Update Post
-                </Button>
-                <Button
-                  className="comment-button"
-                  style={{ margin: "2%" }}
-                  onClick={() => deletePost()}>
-                  Delete Post
-                </Button>
-              </>
-            )}
+              {author && user && author.id === user.id && (
+                <>
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => updatePost(post.id)}>
+                    Update Post
+                  </Button>
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => deletePost()}>
+                    Delete Post
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
         </div>
-        <div style={{ width: "50%" }}>
+        <div className="col-lg-6 col-md-6 col-sm-12">
           <Image
             className="post-image"
             src={post.imageUrl}
             alt="Post"
-            style={{ borderRadius: 5 }}
+            style={{ borderRadius: 5, maxWidth: "100%" }}
           />
         </div>
       </div>
       {comments && comments.length > 0 && (
         <div
+          className="bg-dark"
           style={{
             display: "flex",
             flexWrap: "wrap",
