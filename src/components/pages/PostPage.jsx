@@ -293,7 +293,7 @@ const PostPage = () => {
       <div
         className="bg-dark"
         style={{
-          // padding: "2%",
+          padding: "2%",
           width: "100%",
         }}>
         <div
@@ -381,7 +381,7 @@ const PostPage = () => {
         </div>
         <div
           className="col-lg-6 col-md-6 col-sm-12 bg-dark"
-          style={{ width: "100%" }}>
+          style={{ width: "100%", marginBottom: "2%" }}>
           <Image
             className="post-image"
             src={post.imageUrl}
