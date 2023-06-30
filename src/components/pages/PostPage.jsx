@@ -295,9 +295,7 @@ const PostPage = () => {
         style={{
           padding: "2%",
         }}>
-        <div
-          className="col-lg-6 col-md-6 col-sm-12 bg-dark"
-          style={{ width: "100%" }}>
+        <div className="col-lg-6 col-md-6 col-sm-12 bg-dark">
           <h1 style={{ color: "white" }}>{post.caption}</h1>
           <div className="container bg-dark">
             <div
