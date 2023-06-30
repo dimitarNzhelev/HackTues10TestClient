@@ -366,7 +366,12 @@ const PostPage = () => {
           </div>
         </div>
         <div style={{ width: "50%" }}>
-          <img className="post-image" src={post.imageUrl} alt="Post" />
+          <Image
+            className="post-image"
+            src={post.imageUrl}
+            alt="Post"
+            style={{ borderRadius: 5 }}
+          />
         </div>
       </div>
       {comments && comments.length > 0 && (
