@@ -86,6 +86,8 @@ const PostPage = () => {
         { withCredentials: true }
       )
       .then((res) => {
+        console.log(res.data);
+        console.log(res.data.savedStatus);
         setSavedState(res.data.savedStatus);
       })
       .catch((err) => {
