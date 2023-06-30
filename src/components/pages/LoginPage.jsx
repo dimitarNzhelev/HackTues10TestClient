@@ -52,10 +52,6 @@ const LoginComponent = ({ errors, messages }) => {
     axios
       .post(urlWithProxy, data, { withCredentials: true })
       .then((res) => {
-        console.log(res.data.response.data.message);
-        if (res.data.response.data.message) {
-          alert(res.data.response.data.message);
-        }
         if (res.data.user.isverified) {
           navigate("/dashboard");
         } else {
@@ -64,8 +60,8 @@ const LoginComponent = ({ errors, messages }) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
-        alert(err);
+        console.log(err.response.data.message);
+        alert(err.response.data.message);
         setLoading(false);
       });
   }
