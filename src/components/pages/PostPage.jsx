@@ -313,16 +313,17 @@ const PostPage = () => {
               className="comment-button"
               style={{ margin: "2%" }}
               onClick={() => setShowPopup(true)}>
-              <CommentPopup
-                show={showPopup}
-                handleClose={() => {
-                  console.log("HANDLE CLOSE");
-                  setShowPopup(false);
-                }}
-                handleSave={handleSaveComment}
-              />
               Add comment
             </Button>
+
+            <CommentPopup
+              show={showPopup}
+              handleClose={() => {
+                setShowPopup(false);
+              }}
+              handleSave={handleSaveComment}
+            />
+
             <Button
               className="comment-button"
               style={{ margin: "2%" }}
