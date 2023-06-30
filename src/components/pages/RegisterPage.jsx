@@ -21,7 +21,6 @@ const RegisterComponent = ({ errors, messages }) => {
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
-            navigate("/auth/register");
           } else {
             navigate("/dashboard");
           }
@@ -42,7 +41,7 @@ const RegisterComponent = ({ errors, messages }) => {
     e.preventDefault();
 
     const urlWithProxy =
-      "/https://lobster-app-2-2vuam.ondigitalocean.app/auth/register";
+      "https://lobster-app-2-2vuam.ondigitalocean.app/auth/register";
 
     const data = {
       name,
