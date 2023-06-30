@@ -14,8 +14,8 @@ const CommentPopup = ({ show, handleClose, handleSave }) => {
 
   return (
     <Modal show={show} onHide={handleClose} className="bg-dark text-white">
-      <Modal.Header closeButton onClick={handleClose}>
-        <Modal.Title>Add a comment</Modal.Title>
+      <Modal.Header closeButton>
+        <Modal.Title style={{ color: "black" }}>Add a comment</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
