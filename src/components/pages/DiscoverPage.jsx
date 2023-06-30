@@ -1,16 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    "&:hover": {
+      boxShadow: "0 5px 15px rgba(0,0,0,0.3)", // add the shadow effect you like
+    },
+  },
+});
 
 const Discover = () => {
+  const classes = useStyles();
   const navigate = useNavigate();
-  const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
   const handleLogout = () => {
     axios
@@ -18,7 +27,6 @@ const Discover = () => {
         withCredentials: true,
       })
       .then((res) => {
-        setUser();
         navigate("/auth/login");
       });
   };
@@ -101,6 +109,7 @@ const Discover = () => {
           posts.map((post) => {
             return (
               <Card
+                className={classes.root}
                 sx={{
                   maxWidth: 345,
                   margin: "1%",
