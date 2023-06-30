@@ -64,7 +64,14 @@ const RegisterComponent = ({ errors, messages }) => {
         }
       })
       .catch((err) => {
-        console.error(JSON.stringify(err.response.data.erros));
+        console.error(err.response.data);
+        if (err.response) {
+          alert(err.response.data.message);
+        } else if (err.request) {
+          alert("Request was made but no response was received");
+        } else {
+          alert("Something went wrong");
+        }
       });
   };
 
