@@ -64,11 +64,7 @@ const RegisterComponent = ({ errors, messages }) => {
         }
       })
       .catch((err) => {
-        console.error(
-          JSON.stringify(
-            err.response.data.erros.map((err) => err.msg).join("\n")
-          )
-        );
+        console.error(JSON.stringify(err.response.data.erros));
       });
   };
 
