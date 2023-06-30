@@ -291,7 +291,7 @@ const PostPage = () => {
       </Navbar>
 
       <div
-        className="content bg-dark row"
+        className="bg-dark row"
         style={{
           // padding: "2%",
           width: "100%",
@@ -303,7 +303,6 @@ const PostPage = () => {
           <div className="container bg-dark" style={{ width: "100%" }}>
             <div
               style={{
-                // width: "100%",
                 alignSelf: "center",
                 marginBottom: "50px",
               }}
