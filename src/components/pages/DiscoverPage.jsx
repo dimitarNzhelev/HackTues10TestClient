@@ -102,9 +102,7 @@ const Discover = () => {
               <Card
                 sx={{
                   maxWidth: 345,
-                  marginLeft: "1%",
-                  marginRight: "1%",
-                  marginBottom: "1%",
+                  margin: "1%",
                 }}
                 key={post.id}>
                 <CardActionArea
