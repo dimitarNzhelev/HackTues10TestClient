@@ -291,10 +291,12 @@ const PostPage = () => {
 
       <div
         className="content bg-dark row"
-        style={{
-          // padding: "2%",
-          width: "100%",
-        }}>
+        style={
+          {
+            // padding: "2%",
+            // width: "100%",
+          }
+        }>
         <div
           className="col-lg-6 col-md-6 col-sm-12 bg-dark"
           style={{ width: "100%" }}>
