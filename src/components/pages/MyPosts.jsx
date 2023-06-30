@@ -80,7 +80,6 @@ const MyPosts = () => {
           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
         </Nav>
       </Navbar>
-      <h1 className="mb-5">Discover</h1>
       <div
         style={{
           display: "flex",
