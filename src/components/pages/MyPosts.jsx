@@ -7,12 +7,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import "./card.css";
 import "./background.css";
 
 const MyPosts = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const handleLogout = () => {
     axios
       .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout", {
@@ -27,6 +30,7 @@ const MyPosts = () => {
 
   useEffect(() => {
     let isMounted = true;
+    setLoading(true);
 
     axios
       .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/myposts", {
@@ -38,11 +42,13 @@ const MyPosts = () => {
             setPosts(res.data.posts);
           }
         }
+        setLoading(false);
       })
       .catch((err) => {
         if (isMounted) {
           console.error(err);
         }
+        setLoading(false);
       });
 
     return () => {
@@ -91,7 +97,9 @@ const MyPosts = () => {
           justifyContent: "space-around",
           alignItems: "start",
         }}>
-        {posts && posts.length > 0 ? (
+        {loading ? (
+          <CircularProgress color="secondary" />
+        ) : posts && posts.length > 0 ? (
           posts.map((post) => {
             return (
               <Card className="cardHover" key={post.id}>
