@@ -325,19 +325,23 @@ const PostPage = () => {
                 <div
                   style={{
                     alignSelf: "center",
+                    display: "flex",
+                    justifyContent: "space-between",
                   }}>
-                  <h3 style={{ color: "white" }}>Description:</h3>
-                  <h3 style={{ color: "white" }}>{post.description}</h3>
-                  <h3 style={{ color: "white" }} id="total-likes">
-                    Total likes: {totalLikes}
-                  </h3>
-                  <h3 style={{ color: "white" }} id="totalcomments">
-                    Total comments: {totalComments}
-                  </h3>
-                  <h3 style={{ color: "white" }}>
-                    Posted by: {author && author.name}
-                  </h3>
-                  <a href="/dashboard">Back to dashboard</a>
+                  <>
+                    <h3 style={{ color: "white" }}>Description:</h3>
+                    <h3 style={{ color: "white" }}>{post.description}</h3>
+                    <h3 style={{ color: "white" }} id="total-likes">
+                      Total likes: {totalLikes}
+                    </h3>
+                    <h3 style={{ color: "white" }} id="totalcomments">
+                      Total comments: {totalComments}
+                    </h3>
+                    <h3 style={{ color: "white" }}>
+                      Posted by: {author && author.name}
+                    </h3>
+                    <a href="/dashboard">Back to dashboard</a>
+                  </>
                   {user ? (
                     <>
                       <Button
@@ -381,24 +385,23 @@ const PostPage = () => {
                       </Button>
                     </>
                   ) : null}
-
-                  {author && user && author.id === user.id && (
-                    <>
-                      <Button
-                        className="comment-button"
-                        style={{ margin: "2%" }}
-                        onClick={() => updatePost(post.id)}>
-                        Update Post
-                      </Button>
-                      <Button
-                        className="comment-button"
-                        style={{ margin: "2%" }}
-                        onClick={() => deletePost()}>
-                        Delete Post
-                      </Button>
-                    </>
-                  )}
                 </div>
+                {author && user && author.id === user.id && (
+                  <>
+                    <Button
+                      className="comment-button"
+                      style={{ margin: "2%" }}
+                      onClick={() => updatePost(post.id)}>
+                      Update Post
+                    </Button>
+                    <Button
+                      className="comment-button"
+                      style={{ margin: "2%" }}
+                      onClick={() => deletePost()}>
+                      Delete Post
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
           </div>
