@@ -390,13 +390,13 @@ const PostPage = () => {
             </div>
           </div>
           {comments && comments.length > 0 && (
-            <Element
+            <div
               name="myScrollToElement"
               style={{
                 width: "30%",
                 height: "100%",
                 maxHeight: "100%",
-                overflowY: "auto",
+                overflow: "auto",
               }}>
               {comments.map((comment) => (
                 <div
@@ -459,7 +459,7 @@ const PostPage = () => {
                   )}
                 </div>
               ))}
-            </Element>
+            </div>
           )}
         </div>
       )}
