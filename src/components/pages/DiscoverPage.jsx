@@ -103,12 +103,7 @@ const Discover = () => {
         {posts &&
           posts.map((post) => {
             return (
-              <Card
-                className="cardHover"
-                sx={{
-                  margin: "1%",
-                }}
-                key={post.id}>
+              <Card className="cardHover" key={post.id}>
                 <CardActionArea
                   onClick={() =>
                     navigate("/dashboard/post/" + post.id, { state: { post } })

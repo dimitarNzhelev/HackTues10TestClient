@@ -15,6 +15,7 @@
 }
 .cardHover {
     width: 300px;
+    margin: "2%"
 }
 }
 
@@ -24,5 +25,6 @@
 }
 .cardHover {
     width: 450px;
+    margin: "1%"
 }
 }
