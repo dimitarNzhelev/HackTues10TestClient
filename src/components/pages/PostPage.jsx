@@ -308,89 +308,89 @@ const PostPage = () => {
             padding: "2%",
           }}>
           <div
-            className="col-lg-6 col-md-6 col-sm-12   imageContainer"
+            className="col-lg-6 col-md-6 col-sm-12 imageContainer"
             style={{ marginBottom: "2%" }}>
+            <h1 style={{ color: "white" }}>{post.caption}</h1>
             <Image
               className="post-image "
               src={post.imageUrl}
               alt="Post"
               style={{ borderRadius: 10, width: 1920, height: 1080 }}
             />
-          </div>
-          <div className="col-lg-6 col-md-6 col-sm-12  ">
-            <h1 style={{ color: "white" }}>{post.caption}</h1>
-            <div className="container  ">
-              <div
-                style={{
-                  alignSelf: "center",
-                  marginBottom: "50px",
-                }}>
-                <p style={{ color: "white" }}>Description:</p>
-                <p style={{ color: "white" }}>{post.description}</p>
-                <p style={{ color: "white" }} id="total-likes">
-                  Total likes: {totalLikes}
-                </p>
-                <p style={{ color: "white" }} id="totalcomments">
-                  Total comments: {totalComments}
-                </p>
-                <p style={{ color: "white" }}>
-                  Posted by: {author && author.name}
-                </p>
-                <a href="/dashboard">Back to dashboard</a>
-                <Button
-                  className="comment-button"
-                  style={{ margin: "2%" }}
-                  onClick={() => setShowPopup(true)}>
-                  Add comment
-                </Button>
-
-                <CommentPopup
-                  show={showPopup}
-                  handleClose={() => {
-                    setShowPopup(false);
-                  }}
-                  handleSave={handleSaveComment}
-                />
-
-                <Button
-                  className="comment-button"
-                  style={{ margin: "2%" }}
-                  onClick={() => {
-                    navigator.clipboard.writeText(post.imageUrl).then(() => {
-                      alert("Image URL copied to clipboard :)");
-                    });
+            <div className="col-lg-6 col-md-6 col-sm-12  ">
+              <div className="container  ">
+                <div
+                  style={{
+                    alignSelf: "center",
+                    marginBottom: "50px",
                   }}>
-                  Share
-                </Button>
-                <Button
-                  className="comment-button"
-                  style={{ margin: "2%" }}
-                  onClick={() => like()}>
-                  {likedState ? "Unlike" : "Like"}
-                </Button>
-                <Button
-                  className="comment-button"
-                  style={{ margin: "2%" }}
-                  onClick={() => save()}>
-                  {savedState ? "Unsave" : "Save"}
-                </Button>
+                  <p style={{ color: "white" }}>Description:</p>
+                  <p style={{ color: "white" }}>{post.description}</p>
+                  <p style={{ color: "white" }} id="total-likes">
+                    Total likes: {totalLikes}
+                  </p>
+                  <p style={{ color: "white" }} id="totalcomments">
+                    Total comments: {totalComments}
+                  </p>
+                  <p style={{ color: "white" }}>
+                    Posted by: {author && author.name}
+                  </p>
+                  <a href="/dashboard">Back to dashboard</a>
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => setShowPopup(true)}>
+                    Add comment
+                  </Button>
 
-                {author && user && author.id === user.id && (
-                  <>
-                    <Button
-                      className="comment-button"
-                      style={{ margin: "2%" }}
-                      onClick={() => updatePost(post.id)}>
-                      Update Post
-                    </Button>
-                    <Button
-                      className="comment-button"
-                      style={{ margin: "2%" }}
-                      onClick={() => deletePost()}>
-                      Delete Post
-                    </Button>
-                  </>
-                )}
+                  <CommentPopup
+                    show={showPopup}
+                    handleClose={() => {
+                      setShowPopup(false);
+                    }}
+                    handleSave={handleSaveComment}
+                  />
+
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => {
+                      navigator.clipboard.writeText(post.imageUrl).then(() => {
+                        alert("Image URL copied to clipboard :)");
+                      });
+                    }}>
+                    Share
+                  </Button>
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => like()}>
+                    {likedState ? "Unlike" : "Like"}
+                  </Button>
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => save()}>
+                    {savedState ? "Unsave" : "Save"}
+                  </Button>
+
+                  {author && user && author.id === user.id && (
+                    <>
+                      <Button
+                        className="comment-button"
+                        style={{ margin: "2%" }}
+                        onClick={() => updatePost(post.id)}>
+                        Update Post
+                      </Button>
+                      <Button
+                        className="comment-button"
+                        style={{ margin: "2%" }}
+                        onClick={() => deletePost()}>
+                        Delete Post
+                      </Button>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </div>
