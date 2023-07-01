@@ -6,7 +6,7 @@ import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
 import { CircularProgress, Box } from "@mui/material";
-import Scroll from "react-scroll";
+import Scrollbar from "react-scroll";
 
 const PostPage = () => {
   const { postId } = useParams();
@@ -391,14 +391,15 @@ const PostPage = () => {
             </div>
           </div>
           {comments && comments.length > 0 && (
-            <Scroll
-              className="scrollable-component"
-              scrollY={scrollY}
-              scrollYOptions={{
-                snapTo: 100,
-              }}
-              width="30%"
-              height="100%">
+            // <Scrollbar
+            //   className="scrollable-component"
+            //   scrollY={scrollY}
+            //   scrollYOptions={{
+            //     snapTo: 100,
+            //   }}
+            //   width="30%"
+            //   height="100%">
+            <div style={{ height: 800, overflow: "scroll" }}>
               {comments.map((comment) => (
                 <div
                   key={comment.id}
@@ -460,7 +461,7 @@ const PostPage = () => {
                   )}
                 </div>
               ))}
-            </Scroll>
+            </div>
           )}
         </div>
       )}
