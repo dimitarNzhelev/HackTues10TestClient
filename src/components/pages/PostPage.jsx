@@ -6,7 +6,7 @@ import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
 import { CircularProgress, Box } from "@mui/material";
-import { useWindowSize } from "./helperFunction.jsx";
+import useWindowSize from "./helperFunction";
 const PostPage = () => {
   const { postId } = useParams();
   const location = useLocation();
