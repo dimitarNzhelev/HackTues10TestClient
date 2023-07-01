@@ -6,8 +6,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Box, CardActionArea } from "@mui/material";
 import "./card.css";
 import "./background.css";
 
@@ -98,7 +97,13 @@ const MyPosts = () => {
           alignItems: "start",
         }}>
         {loading ? (
-          <CircularProgress color="secondary" />
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            minHeight="80vh">
+            <CircularProgress color="secondary" size={100} />
+          </Box>
         ) : posts && posts.length > 0 ? (
           posts.map((post) => {
             return (
