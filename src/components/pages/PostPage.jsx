@@ -302,15 +302,9 @@ const PostPage = () => {
           <CircularProgress size={100} />
         </Box>
       ) : (
-        <div
-          className="split"
-          style={{
-            padding: "2%",
-          }}>
-          <div
-            className="col-lg-6 col-md-6 col-sm-12 imageContainer"
-            style={{ marginBottom: "2%" }}>
-            <h1 style={{ color: "white" }}>{post.caption}</h1>
+        <div className="split">
+          <div className="col-lg-6 col-md-6 col-sm-12 imageContainer">
+            <h1 style={{ color: "white", padding: "2%" }}>{post.caption}</h1>
             <Image
               className="post-image "
               src={post.imageUrl}
