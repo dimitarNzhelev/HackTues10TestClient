@@ -17,7 +17,6 @@ const MyPosts = () => {
         withCredentials: true,
       })
       .then((res) => {
-        setUser();
         navigate("/auth/login");
       });
   };
