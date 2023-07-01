@@ -8,16 +8,13 @@ const PostPage = () => {
   const location = useLocation();
   const post = location.state.post;
 
-
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
 
   const size = useWindowSize();
   console.log(size);
 
   return (
-    <div>
-      {width > 768 ? <LargeScreenPostPage /> : <SmallScreenPostPage />}
-    </div>
+    <div>{width > 768 ? <LargeScreenPostPage /> : <SmallScreenPostPage />}</div>
   );
-  
+};
 export default PostPage;
