@@ -295,11 +295,11 @@ const SmallScreenPostPage = () => {
         }}>
         <div className="col-lg-6 col-md-6 col-sm-12  ">
           <h1 style={{ color: "white" }}>{post.caption}</h1>
-          <div className="container  ">
+          <div className="container">
             <div
               style={{
                 alignSelf: "center",
-                paddingBottom: "50px",
+                marginBottom: "50px",
               }}
               className="gradient-background">
               <p style={{ color: "white" }}>Description:</p>
@@ -372,7 +372,7 @@ const SmallScreenPostPage = () => {
           </div>
         </div>
         <div
-          className="col-lg-6 col-md-6 col-sm-12 gradient-background imageContainer"
+          className="col-lg-6 col-md-6 col-sm-12   imageContainer"
           style={{ marginBottom: "2%" }}>
           <Image
             className="post-image "
@@ -394,7 +394,6 @@ const SmallScreenPostPage = () => {
             flexWrap: "wrap",
             justifyContent: "space-between",
             width: "100%",
-            backgroundColor: "#9FA6C4",
           }}>
           {comments.map((comment) => (
             <div
