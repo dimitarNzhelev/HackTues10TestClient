@@ -6,7 +6,7 @@ import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
 import { CircularProgress, Box } from "@mui/material";
-import { ScrollArea } from "react-scroll";
+import { Element } from "react-scroll";
 
 const PostPage = () => {
   const { postId } = useParams();
