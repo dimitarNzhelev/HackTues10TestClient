@@ -14,7 +14,7 @@ const PostPage = () => {
   console.log(size);
 
   return (
-    <div>
+    <div className="gradient-background">
       {size.width > 768 ? <LargeScreenPostPage /> : <SmallScreenPostPage />}
     </div>
   );
