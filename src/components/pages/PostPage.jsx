@@ -393,7 +393,7 @@ const PostPage = () => {
           {comments && comments.length > 0 && (
             <div
               style={{
-                height: size.height * 0.99,
+                height: size.height * 0.92,
                 overflow: "scroll",
                 width: size.width * 0.3,
               }}>
