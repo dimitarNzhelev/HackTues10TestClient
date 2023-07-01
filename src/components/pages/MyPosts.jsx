@@ -51,7 +51,7 @@ const MyPosts = () => {
   }, []);
 
   return (
-    <div>
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"
