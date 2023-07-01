@@ -111,70 +111,77 @@ const Upload = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Container
-        className="d-flex flex-column align-items-center justify-content-center py-3 text-white parent-div"
-        style={{ background: "#242944", borderRadius: 5 }}>
-        <h2>Upload Image</h2>
-        <Form
-          onSubmit={onSubmit}
-          className="w-50"
-          encType="multipart/form-data">
-          <Form.Group controlId="formCaption">
-            <Form.Label>Caption:</Form.Label>
-            <Form.Control
-              type="text"
-              name="caption"
-              required
-              className="mb-3 p-3 bg-secondary text-white"
-              value={caption}
-              onChange={(e) => setCaption(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formDescription">
-            <Form.Label>Description:</Form.Label>
-            <Form.Control
-              type="text"
-              name="description"
-              required
-              className="mb-3 p-3 bg-secondary text-white"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formVisibility">
-            <Form.Label>Visibility:</Form.Label>
-            <Form.Control
-              as="select"
-              name="visibility"
-              required
-              className="mb-3 p-3 bg-secondary text-white"
-              value={visibility}
-              onChange={(e) => setVisibility(e.target.value)}>
-              <option value="listed">Listed</option>
-              <option value="unlisted">Unlisted</option>
-              <option value="private">Private</option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Upload an Image:</Form.Label>
-            <Form.Control
-              type="file"
-              name="photo"
-              required
-              className="mb-3 p-3 bg-secondary text-white"
-              onChange={(e) => setPhoto(e.target.files[0])}
-              accept=".jpg, .jpeg, .png, .gif"
-            />
-          </Form.Group>
+      <div className="content">
+        <Container
+          className="d-flex flex-column align-items-center justify-content-center text-white"
+          style={{
+            background: "#242944",
+            borderRadius: 5,
+            padding: 2,
+            margin: 0,
+          }}>
+          <h2>Upload Image</h2>
+          <Form
+            onSubmit={onSubmit}
+            className="w-50"
+            encType="multipart/form-data">
+            <Form.Group controlId="formCaption">
+              <Form.Label>Caption:</Form.Label>
+              <Form.Control
+                type="text"
+                name="caption"
+                required
+                className="mb-3 p-3 bg-secondary text-white"
+                value={caption}
+                onChange={(e) => setCaption(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="formDescription">
+              <Form.Label>Description:</Form.Label>
+              <Form.Control
+                type="text"
+                name="description"
+                required
+                className="mb-3 p-3 bg-secondary text-white"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="formVisibility">
+              <Form.Label>Visibility:</Form.Label>
+              <Form.Control
+                as="select"
+                name="visibility"
+                required
+                className="mb-3 p-3 bg-secondary text-white"
+                value={visibility}
+                onChange={(e) => setVisibility(e.target.value)}>
+                <option value="listed">Listed</option>
+                <option value="unlisted">Unlisted</option>
+                <option value="private">Private</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Upload an Image:</Form.Label>
+              <Form.Control
+                type="file"
+                name="photo"
+                required
+                className="mb-3 p-3 bg-secondary text-white"
+                onChange={(e) => setPhoto(e.target.files[0])}
+                accept=".jpg, .jpeg, .png, .gif"
+              />
+            </Form.Group>
 
-          <Button variant="primary" type="submit" className="w-100 p-2">
-            Upload
-          </Button>
-        </Form>
-        <a href="/dashboard/" className="mt-3 text-primary">
-          Back
-        </a>
-      </Container>
+            <Button variant="primary" type="submit" className="w-100 p-2">
+              Upload
+            </Button>
+          </Form>
+          <a href="/dashboard/" className="mt-3 text-primary">
+            Back
+          </a>
+        </Container>
+      </div>
     </div>
   );
 };

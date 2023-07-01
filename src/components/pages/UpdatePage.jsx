@@ -135,10 +135,15 @@ const Update = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <div className="parent-div">
+      <div className="content">
         <Container
           className="d-flex flex-column align-items-center justify-content-center text-white"
-          style={{ background: "#242944", borderRadius: 5 }}>
+          style={{
+            background: "#242944",
+            borderRadius: 5,
+            padding: 2,
+            margin: 0,
+          }}>
           <h2>Upload Image</h2>
           <h3 className="text-center">
             If you don't want to change the Image, leave it empty.
