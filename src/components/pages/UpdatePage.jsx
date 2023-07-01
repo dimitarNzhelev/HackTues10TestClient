@@ -37,6 +37,14 @@ const Update = () => {
             navigate("/auth/login");
           }
           setUser(res.data.user);
+          axios
+            .get(
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/myposts/${id}/update`,
+              { withCredentials: true }
+            )
+            .then((res) => {
+              console.log(res.data);
+            });
         }
       })
       .catch((err) => {
@@ -59,7 +67,6 @@ const Update = () => {
     formData.append("visibility", visibility);
     formData.append("photo", photo);
     formData.append("user", JSON.stringify(user));
-    console.log(user);
     for (var pair of formData.entries()) {
       console.log(pair[0] + ", " + pair[1]);
     }
