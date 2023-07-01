@@ -9,6 +9,11 @@
     transition: transform 0.4s ease-in-out;
 }
 
+.card-content {
+    background-color: #242944;
+    color: #fff;
+}
+
 @media (max-width: 768px) {
 .image {
     height: 140px;   

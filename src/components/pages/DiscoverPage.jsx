@@ -114,7 +114,7 @@ const Discover = () => {
                     image={post.imageUrl}
                     alt="green iguana"
                   />
-                  <CardContent>
+                  <CardContent className="card-content">
                     <Typography gutterBottom variant="h5" component="div">
                       {post.caption}
                     </Typography>

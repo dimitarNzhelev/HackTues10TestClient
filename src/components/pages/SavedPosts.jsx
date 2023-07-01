@@ -68,7 +68,7 @@ const SavedPosts = () => {
   }, []);
 
   return (
-    <div className="gradient-background">
+    <div>
       <Navbar
         bg="dark"
         variant="dark"
@@ -107,7 +107,7 @@ const SavedPosts = () => {
           justifyContent: "space-around",
           alignItems: "start",
         }}
-        className=" ">
+        className="gradient-background">
         {posts &&
           posts.map((post) => {
             return (
@@ -122,7 +122,7 @@ const SavedPosts = () => {
                     image={post.imageUrl}
                     alt="green iguana"
                   />
-                  <CardContent>
+                  <CardContent className="card-content">
                     <Typography gutterBottom variant="h5" component="div">
                       {post.caption}
                     </Typography>
