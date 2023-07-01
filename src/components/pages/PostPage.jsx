@@ -347,13 +347,13 @@ const PostPage = () => {
                 className="comment-button"
                 style={{ margin: "2%" }}
                 onClick={() => like()}>
-                Like
+                {likedState ? "Unlike" : "Like"}
               </Button>
               <Button
                 className="comment-button"
                 style={{ margin: "2%" }}
                 onClick={() => save()}>
-                Save
+                {savedState ? "Unsave" : "Save"}
               </Button>
 
               {author && user && author.id === user.id && (
