@@ -104,7 +104,7 @@ const Update = () => {
   return (
     <>
       <Navbar
-        bg="secondary"
+        bg="dark"
         variant="dark"
         expand="lg"
         style={{

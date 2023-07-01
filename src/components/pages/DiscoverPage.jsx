@@ -62,7 +62,7 @@ const Discover = () => {
   return (
     <div style={{ height: "100%" }} className="bg-dark">
       <Navbar
-        bg="secondary"
+        bg="dark"
         variant="dark"
         expand="lg"
         style={{

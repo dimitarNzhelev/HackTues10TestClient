@@ -52,7 +52,7 @@ const MyPosts = () => {
   return (
     <div style={{ height: "100%" }}>
       <Navbar
-        bg="secondary"
+        bg="dark"
         variant="dark"
         expand="lg"
         style={{

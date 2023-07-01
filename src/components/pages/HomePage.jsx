@@ -51,11 +51,11 @@ const DashboardComponent = () => {
   return (
     <>
       <Navbar
-        variant="light"
+        bg="dark"
+        variant="dark"
         expand="lg"
         style={{
           padding: 10,
-          backgroundColor: "lightblue",
         }}>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

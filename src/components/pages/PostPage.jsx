@@ -255,7 +255,7 @@ const PostPage = () => {
   return post ? (
     <div style={{ height: "100%" }}>
       <Navbar
-        bg="secondary"
+        bg="dark"
         variant="dark"
         expand="lg"
         style={{
