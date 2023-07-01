@@ -399,7 +399,8 @@ const PostPage = () => {
               style={{
                 width: "30%",
                 height: "100%",
-                overflowY: "scroll",
+                maxHeight: "100%",
+                overflowY: "auto",
               }}>
               {comments.map((comment) => (
                 <div
