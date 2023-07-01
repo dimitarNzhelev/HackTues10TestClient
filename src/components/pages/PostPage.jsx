@@ -27,6 +27,7 @@ const PostPage = () => {
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
 
   const size = useWindowSize();
+  console.log(size);
 
   const handleLogout = () => {
     axios
