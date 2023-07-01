@@ -5,6 +5,7 @@ import { useNavigate, useLocation, useParams } from "react-router-dom";
 import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
+import useWindowSize from "./helperFunction";
 
 const SmallScreenPostPage = () => {
   const { postId } = useParams();
@@ -23,7 +24,7 @@ const SmallScreenPostPage = () => {
   const [savedState, setSavedState] = useState(false);
 
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
-
+  const size = useWindowSize();
   const handleLogout = () => {
     axios
       .get("https://lobster-app-2-2vuam.ondigitalocean.app/auth/logout", {
@@ -377,13 +378,17 @@ const SmallScreenPostPage = () => {
             className="post-image "
             src={post.imageUrl}
             alt="Post"
-            style={{ borderRadius: 10, width: 1920, height: 1080 }}
+            style={{
+              borderRadius: 10,
+              width: size.width * 99,
+              height: size.width * 99 * 0.5625,
+            }}
           />
         </div>
       </div>
       {comments && comments.length > 0 && (
         <div
-          className=" "
+          className="gradient-background"
           style={{
             display: "flex",
             flexWrap: "wrap",
