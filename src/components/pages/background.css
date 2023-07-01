@@ -19,13 +19,13 @@
     width: 30%;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024x) {
     .content {
       width: 80%;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
     .content {
       width: 30%;
     }
