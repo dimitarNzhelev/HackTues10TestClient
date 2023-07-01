@@ -6,7 +6,7 @@ import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
 import { CircularProgress, Box } from "@mui/material";
-import { Element } from "react-scroll";
+import Scroll from "react-scroll";
 
 const PostPage = () => {
   const { postId } = useParams();
@@ -24,6 +24,7 @@ const PostPage = () => {
   const [editCommentText, setEditCommentText] = useState("");
   const [savedState, setSavedState] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
 
@@ -390,14 +391,14 @@ const PostPage = () => {
             </div>
           </div>
           {comments && comments.length > 0 && (
-            <div
-              name="myScrollToElement"
-              style={{
-                width: "30%",
-                height: "100%",
-                maxHeight: "100%",
-                overflow: "auto",
-              }}>
+            <Scroll
+              className="scrollable-component"
+              scrollY={scrollY}
+              scrollYOptions={{
+                snapTo: 100,
+              }}
+              width="30%"
+              height="100%">
               {comments.map((comment) => (
                 <div
                   key={comment.id}
@@ -459,7 +460,7 @@ const PostPage = () => {
                   )}
                 </div>
               ))}
-            </div>
+            </Scroll>
           )}
         </div>
       )}
