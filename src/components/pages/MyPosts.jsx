@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import "./card.css";
 
 const MyPosts = () => {
   const navigate = useNavigate();
@@ -93,8 +94,8 @@ const MyPosts = () => {
           posts.map((post) => {
             return (
               <Card
+                className="cardHover"
                 sx={{
-                  maxWidth: 345,
                   margin: "1%",
                 }}
                 key={post.id}>
@@ -104,7 +105,7 @@ const MyPosts = () => {
                   }>
                   <CardMedia
                     component="img"
-                    height="140"
+                    className="image"
                     image={post.imageUrl}
                     alt="green iguana"
                   />
@@ -112,9 +113,7 @@ const MyPosts = () => {
                     <Typography gutterBottom variant="h5" component="div">
                       {post.caption}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {post.description}
-                    </Typography>
+
                     <Typography gutterBottom variant="h6" component="div">
                       Author: {post.author}
                     </Typography>
