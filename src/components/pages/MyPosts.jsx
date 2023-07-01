@@ -90,7 +90,7 @@ const MyPosts = () => {
           justifyContent: "space-around",
           alignItems: "start",
         }}
-        className="bg-dark">
+        className=" ">
         {posts && posts.length > 0 ? (
           posts.map((post) => {
             return (

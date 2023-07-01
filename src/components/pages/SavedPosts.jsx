@@ -107,7 +107,7 @@ const SavedPosts = () => {
           justifyContent: "space-around",
           alignItems: "start",
         }}
-        className="bg-dark">
+        className=" ">
         {posts &&
           posts.map((post) => {
             return (

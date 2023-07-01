@@ -111,7 +111,7 @@ const Upload = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Container className="d-flex flex-column align-items-center justify-content-center py-3 text-white bg-dark">
+      <Container className="d-flex flex-column align-items-center justify-content-center py-3 text-white  ">
         <h2>Upload Image</h2>
         <Form
           onSubmit={onSubmit}

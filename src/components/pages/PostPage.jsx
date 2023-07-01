@@ -288,19 +288,19 @@ const PostPage = () => {
       </Navbar>
 
       <div
-        className="bg-dark split"
+        className="  split"
         style={{
           padding: "2%",
         }}>
-        <div className="col-lg-6 col-md-6 col-sm-12 bg-dark">
+        <div className="col-lg-6 col-md-6 col-sm-12  ">
           <h1 style={{ color: "white" }}>{post.caption}</h1>
-          <div className="container bg-dark">
+          <div className="container  ">
             <div
               style={{
                 alignSelf: "center",
                 marginBottom: "50px",
               }}
-              className="bg-dark">
+              className=" ">
               <p style={{ color: "white" }}>Description:</p>
               <p style={{ color: "white" }}>{post.description}</p>
               <p style={{ color: "white" }} id="total-likes">
@@ -371,7 +371,7 @@ const PostPage = () => {
           </div>
         </div>
         <div
-          className="col-lg-6 col-md-6 col-sm-12 bg-dark imageContainer"
+          className="col-lg-6 col-md-6 col-sm-12   imageContainer"
           style={{ marginBottom: "2%" }}>
           <Image
             className="post-image "
@@ -383,7 +383,7 @@ const PostPage = () => {
       </div>
       {comments && comments.length > 0 && (
         <div
-          className="bg-dark"
+          className=" "
           style={{
             display: "flex",
             flexWrap: "wrap",

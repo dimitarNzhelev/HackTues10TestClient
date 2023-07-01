@@ -79,9 +79,7 @@ const DashboardComponent = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Container
-        className=" py-3 text-white m-0 bg-dark"
-        style={{ width: "100%" }}>
+      <Container className=" py-3 text-white m-0  " style={{ width: "100%" }}>
         <h1 className="mb-5">Welcome to the Dashboard</h1>
         <p>Hello {user && user.name}</p>
         <p>Email: {user && user.email}</p>
