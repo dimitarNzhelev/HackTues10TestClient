@@ -6,6 +6,7 @@ import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
 import { CircularProgress, Box } from "@mui/material";
+import { ScrollArea } from "react-scroll";
 
 const PostPage = () => {
   const { postId } = useParams();
@@ -389,7 +390,8 @@ const PostPage = () => {
             </div>
           </div>
           {comments && comments.length > 0 && (
-            <div
+            <Element
+              name="myScrollToElement"
               style={{
                 width: "30%",
                 height: "100%",
@@ -457,7 +459,7 @@ const PostPage = () => {
                   )}
                 </div>
               ))}
-            </div>
+            </Element>
           )}
         </div>
       )}
