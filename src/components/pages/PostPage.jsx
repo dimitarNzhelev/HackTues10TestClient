@@ -21,6 +21,7 @@ const PostPage = () => {
   const [editCommentId, setEditCommentId] = useState(null);
   const [editCommentText, setEditCommentText] = useState("");
   const [savedState, setSavedState] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
 
@@ -38,7 +39,7 @@ const PostPage = () => {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     let isMounted = true;
-
+    setLoading(true);
     axios
       .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
         withCredentials: true,
@@ -46,6 +47,7 @@ const PostPage = () => {
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
+            setLoading(false);
             navigate("/auth/login");
           }
           setUser(res.data.user);
@@ -89,10 +91,14 @@ const PostPage = () => {
       )
       .then((res) => {
         setSavedState(res.data.savedStatus);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        setLoading(false);
       });
+
+    setLoading(false);
 
     return () => {
       isMounted = false;
@@ -286,101 +292,110 @@ const PostPage = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
-      <div
-        className="  split"
-        style={{
-          padding: "2%",
-        }}>
-        <div className="col-lg-6 col-md-6 col-sm-12  ">
-          <h1 style={{ color: "white" }}>{post.caption}</h1>
-          <div className="container  ">
-            <div
-              style={{
-                alignSelf: "center",
-                marginBottom: "50px",
-              }}
-              className=" ">
-              <p style={{ color: "white" }}>Description:</p>
-              <p style={{ color: "white" }}>{post.description}</p>
-              <p style={{ color: "white" }} id="total-likes">
-                Total likes: {totalLikes}
-              </p>
-              <p style={{ color: "white" }} id="totalcomments">
-                Total comments: {totalComments}
-              </p>
-              <p style={{ color: "white" }}>
-                Posted by: {author && author.name}
-              </p>
-              <a href="/dashboard">Back to dashboard</a>
-              <Button
-                className="comment-button"
-                style={{ margin: "2%" }}
-                onClick={() => setShowPopup(true)}>
-                Add comment
-              </Button>
-
-              <CommentPopup
-                show={showPopup}
-                handleClose={() => {
-                  setShowPopup(false);
+      {loading ? (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="80vh">
+          <CircularProgress size={100} />
+        </Box>
+      ) : (
+        <div
+          className="split"
+          style={{
+            padding: "2%",
+          }}>
+          <div className="col-lg-6 col-md-6 col-sm-12  ">
+            <h1 style={{ color: "white" }}>{post.caption}</h1>
+            <div className="container  ">
+              <div
+                style={{
+                  alignSelf: "center",
+                  marginBottom: "50px",
                 }}
-                handleSave={handleSaveComment}
-              />
+                className=" ">
+                <p style={{ color: "white" }}>Description:</p>
+                <p style={{ color: "white" }}>{post.description}</p>
+                <p style={{ color: "white" }} id="total-likes">
+                  Total likes: {totalLikes}
+                </p>
+                <p style={{ color: "white" }} id="totalcomments">
+                  Total comments: {totalComments}
+                </p>
+                <p style={{ color: "white" }}>
+                  Posted by: {author && author.name}
+                </p>
+                <a href="/dashboard">Back to dashboard</a>
+                <Button
+                  className="comment-button"
+                  style={{ margin: "2%" }}
+                  onClick={() => setShowPopup(true)}>
+                  Add comment
+                </Button>
 
-              <Button
-                className="comment-button"
-                style={{ margin: "2%" }}
-                onClick={() => {
-                  navigator.clipboard.writeText(post.imageUrl).then(() => {
-                    alert("Image URL copied to clipboard :)");
-                  });
-                }}>
-                Share
-              </Button>
-              <Button
-                className="comment-button"
-                style={{ margin: "2%" }}
-                onClick={() => like()}>
-                {likedState ? "Unlike" : "Like"}
-              </Button>
-              <Button
-                className="comment-button"
-                style={{ margin: "2%" }}
-                onClick={() => save()}>
-                {savedState ? "Unsave" : "Save"}
-              </Button>
+                <CommentPopup
+                  show={showPopup}
+                  handleClose={() => {
+                    setShowPopup(false);
+                  }}
+                  handleSave={handleSaveComment}
+                />
 
-              {author && user && author.id === user.id && (
-                <>
-                  <Button
-                    className="comment-button"
-                    style={{ margin: "2%" }}
-                    onClick={() => updatePost(post.id)}>
-                    Update Post
-                  </Button>
-                  <Button
-                    className="comment-button"
-                    style={{ margin: "2%" }}
-                    onClick={() => deletePost()}>
-                    Delete Post
-                  </Button>
-                </>
-              )}
+                <Button
+                  className="comment-button"
+                  style={{ margin: "2%" }}
+                  onClick={() => {
+                    navigator.clipboard.writeText(post.imageUrl).then(() => {
+                      alert("Image URL copied to clipboard :)");
+                    });
+                  }}>
+                  Share
+                </Button>
+                <Button
+                  className="comment-button"
+                  style={{ margin: "2%" }}
+                  onClick={() => like()}>
+                  {likedState ? "Unlike" : "Like"}
+                </Button>
+                <Button
+                  className="comment-button"
+                  style={{ margin: "2%" }}
+                  onClick={() => save()}>
+                  {savedState ? "Unsave" : "Save"}
+                </Button>
+
+                {author && user && author.id === user.id && (
+                  <>
+                    <Button
+                      className="comment-button"
+                      style={{ margin: "2%" }}
+                      onClick={() => updatePost(post.id)}>
+                      Update Post
+                    </Button>
+                    <Button
+                      className="comment-button"
+                      style={{ margin: "2%" }}
+                      onClick={() => deletePost()}>
+                      Delete Post
+                    </Button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
+          <div
+            className="col-lg-6 col-md-6 col-sm-12   imageContainer"
+            style={{ marginBottom: "2%" }}>
+            <Image
+              className="post-image "
+              src={post.imageUrl}
+              alt="Post"
+              style={{ borderRadius: 10, width: 1920, height: 1080 }}
+            />
+          </div>
         </div>
-        <div
-          className="col-lg-6 col-md-6 col-sm-12   imageContainer"
-          style={{ marginBottom: "2%" }}>
-          <Image
-            className="post-image "
-            src={post.imageUrl}
-            alt="Post"
-            style={{ borderRadius: 10, width: 1920, height: 1080 }}
-          />
-        </div>
-      </div>
+      )}
       {comments && comments.length > 0 && (
         <div
           className=" "

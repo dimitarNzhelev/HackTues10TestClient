@@ -14,6 +14,7 @@ const SavedPosts = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleLogout = () => {
     axios
@@ -29,7 +30,7 @@ const SavedPosts = () => {
 
   useEffect(() => {
     let isMounted = true;
-
+    setLoading(true);
     axios
       .get("https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/", {
         withCredentials: true,
@@ -37,6 +38,7 @@ const SavedPosts = () => {
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
+            setLoading(true);
             navigate("/auth/login");
           }
 
@@ -49,9 +51,11 @@ const SavedPosts = () => {
               )
               .then((res) => {
                 setPosts(res.data.posts);
+                setLoading(false);
               })
               .catch((err) => {
                 console.error(err);
+                setLoading(false);
               });
           }
         }
@@ -60,6 +64,7 @@ const SavedPosts = () => {
         if (isMounted) {
           console.log(err);
         }
+        setLoading(false);
       });
 
     return () => {
@@ -108,7 +113,15 @@ const SavedPosts = () => {
           justifyContent: "space-around",
           alignItems: "start",
         }}>
-        {posts &&
+        {loading ? (
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            minHeight="80vh">
+            <CircularProgress size={100} />
+          </Box>
+        ) : posts && posts.length > 0 ? (
           posts.map((post) => {
             return (
               <Card className="cardHover" key={post.id}>
@@ -134,7 +147,10 @@ const SavedPosts = () => {
                 </CardActionArea>
               </Card>
             );
-          })}
+          })
+        ) : (
+          <h1 style={{ color: "#fff", padding: 20 }}>There are no posts</h1>
+        )}
       </div>
     </div>
   );

@@ -102,7 +102,7 @@ const MyPosts = () => {
             justifyContent="center"
             alignItems="center"
             minHeight="80vh">
-            <CircularProgress color="secondary" size={100} />
+            <CircularProgress size={100} />
           </Box>
         ) : posts && posts.length > 0 ? (
           posts.map((post) => {
