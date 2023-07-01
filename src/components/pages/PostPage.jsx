@@ -392,6 +392,7 @@ const PostPage = () => {
           </div>
           {comments && comments.length > 0 && (
             <div
+              className="custom-scrollbar"
               style={{
                 height: size.height * 0.92,
                 overflow: "scroll",
