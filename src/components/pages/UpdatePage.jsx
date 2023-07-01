@@ -7,7 +7,7 @@ const Update = () => {
   const [user, setUser] = useState("");
   const [caption, setCaption] = useState("");
   const [description, setDescription] = useState("");
-  const [visibility, setVisibility] = useState("listed");
+  const [visibility, setVisibility] = useState("");
   const [photo, setPhoto] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -45,10 +45,18 @@ const Update = () => {
             .then((res) => {
               console.log(res.data);
               const visibilityOptions = ["listed", "unlisted", "private"];
-              if (visibilityOptions.includes(res.data)) {
+              if (visibilityOptions.includes(res.data.visibility)) {
                 setVisibility(res.data);
               } else {
                 setVisibility("listed");
+              }
+
+              if (res.data.caption) {
+                setCaption(res.data.caption);
+              }
+
+              if (res.data.description) {
+                setDescription(res.data.description);
               }
             });
         }
@@ -128,6 +136,7 @@ const Update = () => {
       </Navbar>
       <Container className="d-flex flex-column align-items-center justify-content-center py-3 text-white bg-dark">
         <h2>Upload Image</h2>
+        <h3>If you don't want to change something, leave it empty. </h3>
         <Form
           onSubmit={onSubmit}
           className="w-50"
