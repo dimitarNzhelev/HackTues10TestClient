@@ -2,14 +2,12 @@
     .split {
         display: flex;
         justify-content: space-between;
-        padding: 2%;
     }
 }
 
 
 @media (max-width: 768px) {
     .split {
-        padding: 2%;
     }
     .imageContainer {
         display: flex;

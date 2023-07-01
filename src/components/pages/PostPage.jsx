@@ -318,7 +318,6 @@ const PostPage = () => {
                 <div
                   style={{
                     alignSelf: "center",
-                    marginBottom: "50px",
                   }}>
                   <h3 style={{ color: "white" }}>Description:</h3>
                   <h3 style={{ color: "white" }}>{post.description}</h3>
@@ -391,15 +390,7 @@ const PostPage = () => {
             </div>
           </div>
           {comments && comments.length > 0 && (
-            // <Scrollbar
-            //   className="scrollable-component"
-            //   scrollY={scrollY}
-            //   scrollYOptions={{
-            //     snapTo: 100,
-            //   }}
-            //   width="30%"
-            //   height="100%">
-            <div style={{ height: 800, overflow: "scroll" }}>
+            <div style={{ height: "90%", overflow: "scroll", width: "30%" }}>
               {comments.map((comment) => (
                 <div
                   key={comment.id}
