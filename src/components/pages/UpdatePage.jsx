@@ -140,9 +140,10 @@ const Update = () => {
           className="d-flex flex-column align-items-center justify-content-center text-white"
           style={{
             background: "#242944",
-            borderRadius: 5,
-            padding: 2,
+            borderRadius: 10,
+            padding: "10%",
             margin: 0,
+            width: "100%",
           }}>
           <h2>Upload Image</h2>
           <h3 className="text-center">
@@ -150,7 +151,7 @@ const Update = () => {
           </h3>
           <Form
             onSubmit={onSubmit}
-            className="w-50"
+            className="w-100"
             encType="multipart/form-data">
             <Form.Group controlId="formCaption">
               <Form.Label>Caption:</Form.Label>
