@@ -307,6 +307,16 @@ const PostPage = () => {
           style={{
             padding: "2%",
           }}>
+          <div
+            className="col-lg-6 col-md-6 col-sm-12   imageContainer"
+            style={{ marginBottom: "2%" }}>
+            <Image
+              className="post-image "
+              src={post.imageUrl}
+              alt="Post"
+              style={{ borderRadius: 10, width: 1920, height: 1080 }}
+            />
+          </div>
           <div className="col-lg-6 col-md-6 col-sm-12  ">
             <h1 style={{ color: "white" }}>{post.caption}</h1>
             <div className="container  ">
@@ -314,8 +324,7 @@ const PostPage = () => {
                 style={{
                   alignSelf: "center",
                   marginBottom: "50px",
-                }}
-                className=" ">
+                }}>
                 <p style={{ color: "white" }}>Description:</p>
                 <p style={{ color: "white" }}>{post.description}</p>
                 <p style={{ color: "white" }} id="total-likes">
@@ -385,86 +394,78 @@ const PostPage = () => {
               </div>
             </div>
           </div>
-          <div
-            className="col-lg-6 col-md-6 col-sm-12   imageContainer"
-            style={{ marginBottom: "2%" }}>
-            <Image
-              className="post-image "
-              src={post.imageUrl}
-              alt="Post"
-              style={{ borderRadius: 10, width: 1920, height: 1080 }}
-            />
-          </div>
-        </div>
-      )}
-      {comments && comments.length > 0 && (
-        <div
-          className=" "
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            width: "100%",
-          }}>
-          {comments.map((comment) => (
+          {comments && comments.length > 0 && (
             <div
-              key={comment.id}
+              className=" "
               style={{
-                flex: "1 1 20%",
-                borderWidth: 1,
-                borderRadius: 5,
-                backgroundColor: "grey",
-                color: "white",
-                padding: 10,
-                margin: 10,
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                width: "100%",
               }}>
-              <h1>Comment</h1>
-              <p id={`comment_${comment.id}`}>{comment.comment_text}</p>
-              <p>Posted by: {comment.username}</p>
-              {comment.user_id == user.id && (
-                <>
-                  {editCommentId === comment.id ? (
+              {comments.map((comment) => (
+                <div
+                  key={comment.id}
+                  style={{
+                    flex: "1 1 20%",
+                    borderWidth: 1,
+                    borderRadius: 5,
+                    backgroundColor: "grey",
+                    color: "white",
+                    padding: 10,
+                    margin: 10,
+                  }}>
+                  <h1>Comment</h1>
+                  <p id={`comment_${comment.id}`}>{comment.comment_text}</p>
+                  <p>Posted by: {comment.username}</p>
+                  {comment.user_id == user.id && (
                     <>
-                      <Form
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          updateComment(comment.id, editCommentText);
-                          setEditCommentId(null);
-                        }}>
-                        <Form.Control
-                          type="text"
-                          value={editCommentText}
-                          onChange={(e) => setEditCommentText(e.target.value)}
-                        />
-                        <Button variant="primary" type="submit">
-                          Submit
-                        </Button>
-                      </Form>
-                      <Button onClick={() => setEditCommentId(null)}>
-                        Cancel
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Button
-                        onClick={() => {
-                          setEditCommentId(comment.id);
-                          setEditCommentText(comment.comment_text);
-                        }}
-                        style={{ margin: "2%" }}>
-                        Update
-                      </Button>
-                      <Button
-                        onClick={() => deleteCommentById(comment.id)}
-                        style={{ margin: "2%" }}>
-                        Delete
-                      </Button>
+                      {editCommentId === comment.id ? (
+                        <>
+                          <Form
+                            onSubmit={(e) => {
+                              e.preventDefault();
+                              updateComment(comment.id, editCommentText);
+                              setEditCommentId(null);
+                            }}>
+                            <Form.Control
+                              type="text"
+                              value={editCommentText}
+                              onChange={(e) =>
+                                setEditCommentText(e.target.value)
+                              }
+                            />
+                            <Button variant="primary" type="submit">
+                              Submit
+                            </Button>
+                          </Form>
+                          <Button onClick={() => setEditCommentId(null)}>
+                            Cancel
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button
+                            onClick={() => {
+                              setEditCommentId(comment.id);
+                              setEditCommentText(comment.comment_text);
+                            }}
+                            style={{ margin: "2%" }}>
+                            Update
+                          </Button>
+                          <Button
+                            onClick={() => deleteCommentById(comment.id)}
+                            style={{ margin: "2%" }}>
+                            Delete
+                          </Button>
+                        </>
+                      )}
                     </>
                   )}
-                </>
-              )}
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       )}
     </div>
