@@ -370,7 +370,7 @@ const PostPage = () => {
         </div>
         <div
           className="col-lg-6 col-md-6 col-sm-12 bg-dark imageContainer"
-          style={{ width: "100%", marginBottom: "2%" }}>
+          style={{ marginBottom: "2%" }}>
           <Image
             className="post-image "
             src={post.imageUrl}
