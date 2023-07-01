@@ -5,6 +5,7 @@ import { useNavigate, useLocation, useParams } from "react-router-dom";
 import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
+import { CircularProgress, Box } from "@mui/material";
 
 const PostPage = () => {
   const { postId } = useParams();
