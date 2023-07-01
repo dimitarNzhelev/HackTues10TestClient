@@ -106,7 +106,7 @@ const Discover = () => {
               <Card
                 className="cardHover"
                 sx={{
-                  outerWidth: 300,
+                  width: 300,
                   margin: "1%",
                 }}
                 key={post.id}>
