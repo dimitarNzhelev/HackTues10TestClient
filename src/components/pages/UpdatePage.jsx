@@ -44,6 +44,12 @@ const Update = () => {
             )
             .then((res) => {
               console.log(res.data);
+              const visibilityOptions = ["listed", "unlisted", "private"];
+              if (visibilityOptions.includes(res.data)) {
+                setVisibility(res.data);
+              } else {
+                setVisibility("listed");
+              }
             });
         }
       })
