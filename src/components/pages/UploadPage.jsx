@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container, Navbar, Nav, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "./background.css";
 
 const Upload = () => {
   const [user, setUser] = useState("");
@@ -79,7 +80,7 @@ const Upload = () => {
   };
 
   return (
-    <>
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"
@@ -172,7 +173,7 @@ const Upload = () => {
           Back
         </a>
       </Container>
-    </>
+    </div>
   );
 };
 

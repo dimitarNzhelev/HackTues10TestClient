@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import "./card.css";
+import "./background.css";
 
 const SavedPosts = () => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ const SavedPosts = () => {
   }, []);
 
   return (
-    <div style={{ height: "100%" }}>
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"

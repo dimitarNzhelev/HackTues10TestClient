@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
+import "./background.css";
 const DashboardComponent = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState();
@@ -49,7 +49,7 @@ const DashboardComponent = () => {
   };
 
   return (
-    <>
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"
@@ -87,7 +87,7 @@ const DashboardComponent = () => {
         <p>Email: {user && user.email}</p>
         <p>User identification number: {user && user.id}</p>
       </Container>
-    </>
+    </div>
   );
 };
 

@@ -4,6 +4,8 @@ import { Navbar, Nav, Form, Image, Button } from "react-bootstrap";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import "./post.css";
 import CommentPopup from "../CommentPopUp";
+import "./background.css";
+
 const PostPage = () => {
   const { postId } = useParams();
   const location = useLocation();
@@ -253,7 +255,7 @@ const PostPage = () => {
   }
 
   return post ? (
-    <div style={{ height: "100%" }}>
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"

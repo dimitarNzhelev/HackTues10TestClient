@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Navbar, Nav, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import "./background.css";
+
 const Update = () => {
   const [user, setUser] = useState("");
   const [caption, setCaption] = useState("");
@@ -102,7 +104,7 @@ const Update = () => {
   };
 
   return (
-    <>
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"
@@ -194,7 +196,7 @@ const Update = () => {
           Back
         </a>
       </Container>
-    </>
+    </div>
   );
 };
 
