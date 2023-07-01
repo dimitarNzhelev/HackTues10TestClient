@@ -3,27 +3,26 @@
     transition: transform 0.4s ease-in-out;
 }
 
-
-
 .cardHover:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transform: scale(1.07);
     transition: transform 0.4s ease-in-out;
 }
+
 @media (max-width: 768px) {
 .image {
-    height: 140;   
+    height: 140px;   
 }
 .cardHover {
-    width: 300;
+    width: 300px;
 }
 }
 
 @media (min-width: 768px) {
 .image {
-    height: 210;   
+    height: 210px;   
 }
 .cardHover {
-    width: 450;
+    width: 450px;
 }
 }
