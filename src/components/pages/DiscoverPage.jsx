@@ -116,7 +116,6 @@ const Discover = () => {
                   <CardMedia
                     component="img"
                     className="image"
-                    height="140"
                     image={post.imageUrl}
                     alt="green iguana"
                   />
