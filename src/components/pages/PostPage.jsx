@@ -14,7 +14,9 @@ const PostPage = () => {
   console.log(size);
 
   return (
-    <div>{width > 768 ? <LargeScreenPostPage /> : <SmallScreenPostPage />}</div>
+    <div>
+      {size.width > 768 ? <LargeScreenPostPage /> : <SmallScreenPostPage />}
+    </div>
   );
 };
 export default PostPage;
