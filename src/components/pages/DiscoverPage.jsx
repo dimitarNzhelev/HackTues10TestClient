@@ -106,7 +106,6 @@ const Discover = () => {
               <Card
                 className="cardHover"
                 sx={{
-                  width: 300,
                   margin: "1%",
                 }}
                 key={post.id}>
@@ -116,6 +115,7 @@ const Discover = () => {
                   }>
                   <CardMedia
                     component="img"
+                    className="image"
                     height="140"
                     image={post.imageUrl}
                     alt="green iguana"
@@ -124,6 +124,7 @@ const Discover = () => {
                     <Typography gutterBottom variant="h5" component="div">
                       {post.caption}
                     </Typography>
+
                     <Typography gutterBottom variant="h6" component="div">
                       Author: {post.author}
                     </Typography>
