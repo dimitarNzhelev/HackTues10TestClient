@@ -398,13 +398,13 @@ const PostPage = () => {
             <div
               style={{
                 width: "30%",
+                height: "100%",
+                overflowY: "scroll",
               }}>
               {comments.map((comment) => (
                 <div
                   key={comment.id}
                   style={{
-                    height: "100%",
-                    overflowY: "scroll",
                     flex: "1 1 20%",
                     borderWidth: 1,
                     borderRadius: 5,
