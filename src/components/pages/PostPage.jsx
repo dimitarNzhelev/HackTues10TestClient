@@ -242,7 +242,6 @@ const PostPage = () => {
       )
       .then((res) => {
         if (res.status === 200) {
-          alert(savedState ? "unsaved" : "saved");
           setSavedState(!savedState);
         }
       })
@@ -307,12 +306,6 @@ const PostPage = () => {
               </p>
               <p style={{ color: "white" }} id="totalcomments">
                 Total comments: {totalComments}
-              </p>
-              <p style={{ color: "white" }}>
-                Liked: {likedState ? "yep" : "nope"}
-              </p>
-              <p style={{ color: "white" }}>
-                Saved: {savedState ? "yep" : "nope"}
               </p>
               <p style={{ color: "white" }}>
                 Posted by: {author && author.name}
