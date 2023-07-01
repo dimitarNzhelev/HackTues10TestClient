@@ -380,8 +380,8 @@ const SmallScreenPostPage = () => {
             alt="Post"
             style={{
               borderRadius: 10,
-              width: size.width * 99,
-              height: size.width * 99 * 0.5625,
+              width: size.width * 0.99,
+              height: size.width * 0.99 * 0.5625,
             }}
           />
         </div>
