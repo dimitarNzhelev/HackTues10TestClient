@@ -19,7 +19,7 @@
     width: 30%;
   }
   
-  @media (max-width: 1024x) {
+  @media (max-width: 1024px) {
     .content {
       width: 80%;
     }
