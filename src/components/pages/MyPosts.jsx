@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -10,7 +10,6 @@ import { CardActionArea } from "@mui/material";
 
 const MyPosts = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
   const handleLogout = () => {
     axios
@@ -36,8 +35,6 @@ const MyPosts = () => {
         if (isMounted) {
           if (res.data.posts) {
             setPosts(res.data.posts);
-          } else {
-            navigate("/auth/login");
           }
         }
       })
