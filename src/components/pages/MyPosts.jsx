@@ -83,7 +83,7 @@ const MyPosts = () => {
         </Navbar.Collapse>
       </Navbar>
       <div
-        className="gradient-background"
+        className="only-gradient"
         style={{
           display: "flex",
           flexDirection: "row",

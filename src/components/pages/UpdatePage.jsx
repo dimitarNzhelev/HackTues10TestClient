@@ -104,7 +104,7 @@ const Update = () => {
   };
 
   return (
-    <div className="gradient-background parent-div">
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"
@@ -136,7 +136,7 @@ const Update = () => {
         </Navbar.Collapse>
       </Navbar>
       <Container
-        className="d-flex flex-column align-items-center justify-content-center py-3 text-white"
+        className="d-flex flex-column align-items-center justify-content-center py-3 text-white parent-div"
         style={{ background: "#242944", borderRadius: 5 }}>
         <h2>Upload Image</h2>
         <h3 className="text-center">
