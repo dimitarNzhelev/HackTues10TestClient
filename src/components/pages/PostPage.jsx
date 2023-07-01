@@ -324,17 +324,17 @@ const PostPage = () => {
                     alignSelf: "center",
                     marginBottom: "50px",
                   }}>
-                  <p style={{ color: "white" }}>Description:</p>
-                  <p style={{ color: "white" }}>{post.description}</p>
-                  <p style={{ color: "white" }} id="total-likes">
+                  <h3 style={{ color: "white" }}>Description:</h3>
+                  <h3 style={{ color: "white" }}>{post.description}</h3>
+                  <h3 style={{ color: "white" }} id="total-likes">
                     Total likes: {totalLikes}
-                  </p>
-                  <p style={{ color: "white" }} id="totalcomments">
+                  </h3>
+                  <h3 style={{ color: "white" }} id="totalcomments">
                     Total comments: {totalComments}
-                  </p>
-                  <p style={{ color: "white" }}>
+                  </h3>
+                  <h3 style={{ color: "white" }}>
                     Posted by: {author && author.name}
-                  </p>
+                  </h3>
                   <a href="/dashboard">Back to dashboard</a>
                   <Button
                     className="comment-button"
@@ -396,17 +396,15 @@ const PostPage = () => {
           </div>
           {comments && comments.length > 0 && (
             <div
-              className=" "
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "space-between",
-                width: "100%",
+                width: "30%",
               }}>
               {comments.map((comment) => (
                 <div
                   key={comment.id}
                   style={{
+                    height: "100%",
+                    overflowY: "scroll",
                     flex: "1 1 20%",
                     borderWidth: 1,
                     borderRadius: 5,
