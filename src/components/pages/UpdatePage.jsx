@@ -135,7 +135,10 @@ const Update = () => {
       </Navbar>
       <Container className="d-flex flex-column align-items-center justify-content-center py-3 text-white bg-dark">
         <h2>Upload Image</h2>
-        <h3>If you don't want to change the Image, leave it empty. </h3>
+        <h3 className="text-center">
+          If you don't want to change the Image, leave it empty.
+        </h3>
+
         <Form
           onSubmit={onSubmit}
           className="w-50"
