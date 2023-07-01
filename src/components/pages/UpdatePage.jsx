@@ -43,11 +43,9 @@ const Update = () => {
               { withCredentials: true }
             )
             .then((res) => {
-              console.log(res.data);
-              console.log("visibility: " + res.data.visibility);
               const visibilityOptions = ["listed", "unlisted", "private"];
               if (visibilityOptions.includes(res.data.visibility)) {
-                setVisibility(res.data);
+                setVisibility(res.data.visibility);
               } else {
                 setVisibility("listed");
               }
@@ -137,7 +135,7 @@ const Update = () => {
       </Navbar>
       <Container className="d-flex flex-column align-items-center justify-content-center py-3 text-white bg-dark">
         <h2>Upload Image</h2>
-        <h3>If you don't want to change something, leave it empty. </h3>
+        <h3>If you don't want to change the Image, leave it empty. </h3>
         <Form
           onSubmit={onSubmit}
           className="w-50"
