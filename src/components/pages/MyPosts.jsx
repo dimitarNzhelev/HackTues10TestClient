@@ -124,7 +124,7 @@ const MyPosts = () => {
             );
           })
         ) : (
-          <h1 style={{ color: "#fff" }}>There are no posts</h1>
+          <h1 style={{ color: "#fff", padding: 20 }}>There are no posts</h1>
         )}
       </div>
     </div>
