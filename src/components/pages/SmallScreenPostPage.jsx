@@ -289,7 +289,7 @@ const SmallScreenPostPage = () => {
       </Navbar>
 
       <div
-        className="  split"
+        className="gradient-background split"
         style={{
           padding: "2%",
         }}>
@@ -299,9 +299,9 @@ const SmallScreenPostPage = () => {
             <div
               style={{
                 alignSelf: "center",
-                marginBottom: "50px",
+                paddingBottom: "50px",
               }}
-              className=" ">
+              className="gradient-background">
               <p style={{ color: "white" }}>Description:</p>
               <p style={{ color: "white" }}>{post.description}</p>
               <p style={{ color: "white" }} id="total-likes">
@@ -372,7 +372,7 @@ const SmallScreenPostPage = () => {
           </div>
         </div>
         <div
-          className="col-lg-6 col-md-6 col-sm-12   imageContainer"
+          className="col-lg-6 col-md-6 col-sm-12 gradient-background imageContainer"
           style={{ marginBottom: "2%" }}>
           <Image
             className="post-image "
@@ -394,6 +394,7 @@ const SmallScreenPostPage = () => {
             flexWrap: "wrap",
             justifyContent: "space-between",
             width: "100%",
+            backgroundColor: "#9FA6C4",
           }}>
           {comments.map((comment) => (
             <div

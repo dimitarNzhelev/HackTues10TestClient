@@ -326,17 +326,17 @@ const LargeScreenPostPage = () => {
                   style={{
                     alignSelf: "center",
                   }}>
-                  <h3 style={{ color: "white" }}>Description:</h3>
-                  <h3 style={{ color: "white" }}>{post.description}</h3>
-                  <h3 style={{ color: "white" }} id="total-likes">
+                  <p style={{ color: "white" }}>Description:</p>
+                  <p style={{ color: "white" }}>{post.description}</p>
+                  <p style={{ color: "white" }} id="total-likes">
                     Total likes: {totalLikes}
-                  </h3>
-                  <h3 style={{ color: "white" }} id="totalcomments">
+                  </p>
+                  <p style={{ color: "white" }} id="totalcomments">
                     Total comments: {totalComments}
-                  </h3>
-                  <h3 style={{ color: "white" }}>
+                  </p>
+                  <p style={{ color: "white" }}>
                     Posted by: {author && author.name}
-                  </h3>
+                  </p>
                   <a href="/dashboard">Back to dashboard</a>
                   {user ? (
                     <>

@@ -7,8 +7,6 @@
 
 
 @media (max-width: 768px) {
-    .split {
-    }
     .imageContainer {
         display: flex;
         justify-content: center;
