@@ -6,8 +6,7 @@ import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
 import { CircularProgress, Box } from "@mui/material";
-import Scrollbar from "react-scroll";
-
+import { useWindowSize } from "./helperFunction.jsx";
 const PostPage = () => {
   const { postId } = useParams();
   const location = useLocation();
@@ -24,9 +23,10 @@ const PostPage = () => {
   const [editCommentText, setEditCommentText] = useState("");
   const [savedState, setSavedState] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
 
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
+
+  const size = useWindowSize();
 
   const handleLogout = () => {
     axios
@@ -390,7 +390,12 @@ const PostPage = () => {
             </div>
           </div>
           {comments && comments.length > 0 && (
-            <div style={{ height: "90%", overflow: "scroll", width: "30%" }}>
+            <div
+              style={{
+                height: size.height * 0.8,
+                overflow: "scroll",
+                width: size.width * 0.3,
+              }}>
               {comments.map((comment) => (
                 <div
                   key={comment.id}
