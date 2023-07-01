@@ -100,14 +100,14 @@ const SavedPosts = () => {
         </Navbar.Collapse>
       </Navbar>
       <div
+        className="gradient-background"
         style={{
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
           justifyContent: "space-around",
           alignItems: "start",
-        }}
-        className="gradient-background">
+        }}>
         {posts &&
           posts.map((post) => {
             return (

@@ -61,7 +61,7 @@ const Discover = () => {
   }, []);
 
   return (
-    <div className="gradient-background">
+    <div>
       <Navbar
         bg="dark"
         variant="dark"
@@ -93,6 +93,7 @@ const Discover = () => {
         </Navbar.Collapse>
       </Navbar>
       <div
+        className="gradient-background"
         style={{
           display: "flex",
           flexDirection: "row",

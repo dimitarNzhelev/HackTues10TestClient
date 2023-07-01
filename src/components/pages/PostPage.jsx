@@ -377,7 +377,7 @@ const PostPage = () => {
             className="post-image "
             src={post.imageUrl}
             alt="Post"
-            style={{ borderRadius: 10, maxWidth: "100%" }}
+            style={{ borderRadius: 10, width: 1920, height: 1080 }}
           />
         </div>
       </div>

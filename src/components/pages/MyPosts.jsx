@@ -51,7 +51,7 @@ const MyPosts = () => {
   }, []);
 
   return (
-    <div className="gradient-background">
+    <div>
       <Navbar
         bg="dark"
         variant="dark"
@@ -83,6 +83,7 @@ const MyPosts = () => {
         </Navbar.Collapse>
       </Navbar>
       <div
+        className="gradient-background"
         style={{
           display: "flex",
           flexDirection: "row",
