@@ -117,6 +117,7 @@ const Update = () => {
         expand="lg"
         style={{
           padding: 10,
+          zIndex: 999,
         }}>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -159,6 +160,7 @@ const Update = () => {
               padding: "10%",
               margin: 0,
               width: "100%",
+              zIndex: 0,
             }}>
             <h2>Upload Image</h2>
             <h3 className="text-center">
