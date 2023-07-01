@@ -51,8 +51,10 @@ const PostPage = () => {
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
-            setLoading(false);
-            navigate("/auth/login");
+            if (post.visibility === "private") {
+              setLoading(false);
+              navigate("/auth/login");
+            }
           }
           setUser(res.data.user);
           axios
@@ -315,7 +317,7 @@ const PostPage = () => {
               style={{
                 borderRadius: 10,
                 width: size.width * 0.625,
-                height: size.height * 0.65,
+                height: size.width * 0.625 * 0.5625,
               }}
             />
             <div className="col-lg-6 col-md-6 col-sm-12  ">
@@ -336,43 +338,49 @@ const PostPage = () => {
                     Posted by: {author && author.name}
                   </h3>
                   <a href="/dashboard">Back to dashboard</a>
-                  <Button
-                    className="comment-button"
-                    style={{ margin: "2%" }}
-                    onClick={() => setShowPopup(true)}>
-                    Add comment
-                  </Button>
+                  {user ? (
+                    <>
+                      <Button
+                        className="comment-button"
+                        style={{ margin: "2%" }}
+                        onClick={() => setShowPopup(true)}>
+                        Add comment
+                      </Button>
 
-                  <CommentPopup
-                    show={showPopup}
-                    handleClose={() => {
-                      setShowPopup(false);
-                    }}
-                    handleSave={handleSaveComment}
-                  />
+                      <CommentPopup
+                        show={showPopup}
+                        handleClose={() => {
+                          setShowPopup(false);
+                        }}
+                        handleSave={handleSaveComment}
+                      />
 
-                  <Button
-                    className="comment-button"
-                    style={{ margin: "2%" }}
-                    onClick={() => {
-                      navigator.clipboard.writeText(post.imageUrl).then(() => {
-                        alert("Image URL copied to clipboard :)");
-                      });
-                    }}>
-                    Share
-                  </Button>
-                  <Button
-                    className="comment-button"
-                    style={{ margin: "2%" }}
-                    onClick={() => like()}>
-                    {likedState ? "Unlike" : "Like"}
-                  </Button>
-                  <Button
-                    className="comment-button"
-                    style={{ margin: "2%" }}
-                    onClick={() => save()}>
-                    {savedState ? "Unsave" : "Save"}
-                  </Button>
+                      <Button
+                        className="comment-button"
+                        style={{ margin: "2%" }}
+                        onClick={() => {
+                          navigator.clipboard
+                            .writeText(post.imageUrl)
+                            .then(() => {
+                              alert("Image URL copied to clipboard :)");
+                            });
+                        }}>
+                        Share
+                      </Button>
+                      <Button
+                        className="comment-button"
+                        style={{ margin: "2%" }}
+                        onClick={() => like()}>
+                        {likedState ? "Unlike" : "Like"}
+                      </Button>
+                      <Button
+                        className="comment-button"
+                        style={{ margin: "2%" }}
+                        onClick={() => save()}>
+                        {savedState ? "Unsave" : "Save"}
+                      </Button>
+                    </>
+                  ) : null}
 
                   {author && user && author.id === user.id && (
                     <>
