@@ -1,6 +1,7 @@
 .cardHover {
     transform: scale(1);
     transition: transform 0.4s ease-in-out;
+    background-color: #242944;
 }
 
 .cardHover:hover {

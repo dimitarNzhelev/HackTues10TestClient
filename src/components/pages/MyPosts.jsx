@@ -90,8 +90,7 @@ const MyPosts = () => {
           flexWrap: "wrap",
           justifyContent: "space-around",
           alignItems: "start",
-        }}
-        className=" ">
+        }}>
         {posts && posts.length > 0 ? (
           posts.map((post) => {
             return (
