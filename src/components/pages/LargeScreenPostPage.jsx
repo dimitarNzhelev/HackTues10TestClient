@@ -307,7 +307,7 @@ const LargeScreenPostPage = () => {
           <CircularProgress size={100} />
         </Box>
       ) : (
-        <div className="split">
+        <div className="split" style={{ margin: 30 }}>
           <div className="col-lg-6 col-md-6 col-sm-12 imageContainer">
             <h1 style={{ color: "white", padding: "2%" }}>{post.caption}</h1>
             <Image
@@ -323,7 +323,9 @@ const LargeScreenPostPage = () => {
             <div
               className="col-lg-6 col-md-6 col-sm-12"
               style={{ width: "100%" }}>
-              <div className="container textContainer" style={{ margin: 20 }}>
+              <div
+                className="container textContainer"
+                style={{ marginTop: 20 }}>
                 <div>
                   <p style={{ color: "white" }}>Description:</p>
                   <p style={{ color: "white" }}>{post.description}</p>
@@ -408,9 +410,10 @@ const LargeScreenPostPage = () => {
               className="custom-scrollbar"
               style={{
                 height: size.height * 0.92,
+                alignSelf: "flex-end",
                 overflowY: "scroll",
                 overflowX: "hidden",
-                width: size.width * 0.5,
+                width: size.width * 0.45,
               }}>
               {comments.map((comment) => (
                 <div
