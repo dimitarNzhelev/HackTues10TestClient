@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import "./background.css";
 import useWindowSize from "./helperFunction";
 import LargeScreenPostPage from "./LargeScreenPostPage";
