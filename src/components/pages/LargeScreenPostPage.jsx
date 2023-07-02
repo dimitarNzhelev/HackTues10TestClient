@@ -70,18 +70,19 @@ const LargeScreenPostPage = () => {
             .catch((err) => {
               console.error(err);
             });
-
-          axios
-            .get(
-              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/status`,
-              { withCredentials: true }
-            )
-            .then((res) => {
-              setLikedState(res.data.likeStatus);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
+          if (user) {
+            axios
+              .get(
+                `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/status`,
+                { withCredentials: true }
+              )
+              .then((res) => {
+                setLikedState(res.data.likeStatus);
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          }
         }
       })
       .catch((err) => {
@@ -90,20 +91,21 @@ const LargeScreenPostPage = () => {
         }
       });
 
-    axios
-      .get(
-        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/save/${postId}/status`,
-        { withCredentials: true }
-      )
-      .then((res) => {
-        setSavedState(res.data.savedStatus);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-
+    if (user) {
+      axios
+        .get(
+          `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/save/${postId}/status`,
+          { withCredentials: true }
+        )
+        .then((res) => {
+          setSavedState(res.data.savedStatus);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    }
     setLoading(false);
 
     return () => {
