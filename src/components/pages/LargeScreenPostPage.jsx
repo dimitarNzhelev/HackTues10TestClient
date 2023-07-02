@@ -407,7 +407,7 @@ const LargeScreenPostPage = () => {
               className="custom-scrollbar"
               style={{
                 height: size.height * 0.939534884,
-                overflow: "scroll",
+                overflow: "auto",
                 width: size.width * 0.5,
               }}>
               {comments.map((comment) => (
