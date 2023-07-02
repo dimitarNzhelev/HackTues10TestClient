@@ -455,7 +455,7 @@ const SmallScreenPostPage = () => {
             className: "only-gradient",
             alignSelf: "center",
             justifyContent: "center",
-            width: "40%",
+            width: "100%",
             padding: "5%",
           }}>
           <h1 style={{ color: "white", margin: 30 }}>No comments yet</h1>
