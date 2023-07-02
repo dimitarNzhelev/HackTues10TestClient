@@ -295,8 +295,8 @@ const SmallScreenPostPage = () => {
         }}>
         <div className="col-lg-6 col-md-6 col-sm-12  ">
           <h1 style={{ color: "white" }}>{post.caption}</h1>
-          <div className="container">
-            <div className="gradient-background textContainer">
+          <div className="container gradient-background">
+            <div className="textContainer" style={{ margin: 20 }}>
               <p style={{ color: "white" }}>Description:</p>
               <p style={{ color: "white" }}>{post.description}</p>
               <p style={{ color: "white" }} id="total-likes">
