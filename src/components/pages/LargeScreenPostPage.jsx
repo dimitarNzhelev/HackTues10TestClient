@@ -326,7 +326,7 @@ const LargeScreenPostPage = () => {
               <div className="container  ">
                 <div
                   style={{
-                    alignSelf: "center",
+                    alignSelf: "fkex-start",
                   }}>
                   <p style={{ color: "white" }}>Description:</p>
                   <p style={{ color: "white" }}>{post.description}</p>
