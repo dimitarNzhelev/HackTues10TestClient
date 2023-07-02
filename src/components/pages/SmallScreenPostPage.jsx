@@ -393,7 +393,9 @@ const SmallScreenPostPage = () => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
-            width: "100%",
+            width: size.width * 0.96,
+            height: 500,
+            overflow: "scroll",
           }}>
           {comments.map((comment) => (
             <div
