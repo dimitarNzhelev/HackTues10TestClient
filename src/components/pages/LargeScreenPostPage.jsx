@@ -9,8 +9,7 @@ import { CircularProgress, Box, Hidden } from "@mui/material";
 import useWindowSize from "./helperFunction";
 const LargeScreenPostPage = () => {
   const { postId } = useParams();
-  const location = useLocation();
-  const [post, setPost] = useState(location.state.post);
+  const [post, setPost] = useState({});
   const navigate = useNavigate();
   const [user, setUser] = useState();
   const [likedState, setLikedState] = useState(false);
