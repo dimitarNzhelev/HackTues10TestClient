@@ -323,7 +323,9 @@ const LargeScreenPostPage = () => {
             <div
               className="col-lg-6 col-md-6 col-sm-12"
               style={{ width: "100%" }}>
-              <div className="container textContainer">
+              <div
+                className="container textContainer"
+                style={{ marginTop: 20 }}>
                 <div>
                   <p style={{ color: "white" }}>Description:</p>
                   <p style={{ color: "white" }}>{post.description}</p>
