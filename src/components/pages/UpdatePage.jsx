@@ -163,9 +163,9 @@ const Update = () => {
               zIndex: 0,
             }}>
             <h2>Upload Image</h2>
-            <h3 className="text-center">
+            <p className="text-center">
               If you don't want to change the Image, leave it empty.
-            </h3>
+            </p>
             <Form
               onSubmit={onSubmit}
               className="w-100"
