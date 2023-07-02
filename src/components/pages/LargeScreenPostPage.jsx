@@ -420,7 +420,7 @@ const LargeScreenPostPage = () => {
                     backgroundColor: "grey",
                     color: "white",
                     padding: 10,
-                    margin: 10,
+                    margin: 20,
                   }}>
                   <h1>Comment</h1>
                   <p id={`comment_${comment.id}`}>{comment.comment_text}</p>
