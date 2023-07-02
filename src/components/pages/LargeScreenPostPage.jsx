@@ -408,7 +408,7 @@ const LargeScreenPostPage = () => {
             <div
               className="custom-scrollbar"
               style={{
-                height: size.height * 0.939534884,
+                height: size.height * 0.92,
                 overflow: "auto",
                 width: size.width * 0.5,
               }}>
