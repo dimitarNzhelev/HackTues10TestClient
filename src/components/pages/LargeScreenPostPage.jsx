@@ -316,8 +316,8 @@ const LargeScreenPostPage = () => {
               alt="Post"
               style={{
                 borderRadius: 10,
-                width: size.width * 0.625,
-                height: size.width * 0.625 * 0.5625,
+                width: size.width * 0.625 * 0.8,
+                height: size.width * 0.625 * 0.8 * 0.5625,
               }}
             />
             <div className="col-lg-6 col-md-6 col-sm-12  ">
