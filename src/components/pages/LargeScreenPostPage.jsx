@@ -420,7 +420,7 @@ const LargeScreenPostPage = () => {
                     flex: "1 1 20%",
                     borderWidth: 1,
                     borderRadius: 5,
-                    backgroundColor: "grey",
+                    backgroundColor: "#6774AF",
                     color: "white",
                     padding: 10,
                     margin: 20,
