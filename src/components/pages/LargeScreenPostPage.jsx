@@ -267,7 +267,7 @@ const LargeScreenPostPage = () => {
   }
 
   return post ? (
-    <div className="gradient-background" style={{ overflow: "hidden" }}>
+    <div className="gradient-background">
       <Navbar
         bg="dark"
         variant="dark"
