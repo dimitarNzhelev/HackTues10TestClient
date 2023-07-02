@@ -475,6 +475,7 @@ const LargeScreenPostPage = () => {
               ))}
             </div>
           )}
+          : (<h1 style={{ color: "white" }}>No comments yet</h1>)
         </div>
       )}
     </div>

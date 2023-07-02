@@ -287,7 +287,6 @@ const SmallScreenPostPage = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
       <div
         className="only-gradient"
         style={{
@@ -296,7 +295,7 @@ const SmallScreenPostPage = () => {
         <div className="col-lg-6 col-md-6 col-sm-12  ">
           <h1 style={{ color: "white" }}>{post.caption}</h1>
           <div className="container gradient-background">
-            <div className="textContainer" style={{ margin: 20 }}>
+            <div className="textContainer" style={{ padding: 20 }}>
               <p style={{ color: "white" }}>Description:</p>
               <p style={{ color: "white" }}>{post.description}</p>
               <p style={{ color: "white" }} id="total-likes">
@@ -451,6 +450,7 @@ const SmallScreenPostPage = () => {
           ))}
         </div>
       )}
+      : (<h1 style={{ color: "white" }}>No comments yet</h1>)
     </div>
   ) : null;
 };
