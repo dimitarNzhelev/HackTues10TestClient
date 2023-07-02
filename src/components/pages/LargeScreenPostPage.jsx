@@ -330,6 +330,7 @@ const LargeScreenPostPage = () => {
                     margin: "2%",
                     backgroundColor: "#6774AF",
                     borderRadius: 20,
+                    padding: "2%",
                   }}>
                   <p style={{ color: "white" }}>Description:</p>
                   <p style={{ color: "white" }}>{post.description}</p>
