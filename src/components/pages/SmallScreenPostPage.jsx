@@ -391,7 +391,7 @@ const SmallScreenPostPage = () => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
-            width: size.width * 0.96,
+            width: size.width * 0.99,
             height: 500,
             overflow: "scroll",
           }}>
