@@ -288,7 +288,7 @@ const SmallScreenPostPage = () => {
         </Navbar.Collapse>
       </Navbar>
       <div
-        className="only-gradient"
+        className="gradient-background"
         style={{
           padding: "2%",
         }}>
@@ -452,7 +452,7 @@ const SmallScreenPostPage = () => {
       ) : (
         <div
           style={{
-            className: "only-gradient",
+            className: "gradient-background",
             alignSelf: "center",
             justifyContent: "center",
             width: "100%",
