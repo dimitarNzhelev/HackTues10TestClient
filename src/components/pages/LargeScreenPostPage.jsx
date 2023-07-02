@@ -475,7 +475,16 @@ const LargeScreenPostPage = () => {
               ))}
             </div>
           ) : (
-            <h1 style={{ color: "white", margin: 30 }}>No comments yet</h1>
+            <div
+              style={{
+                className: "only-gradient",
+                alignSelf: "center",
+                justifyContent: "center",
+                width: "40%",
+                padding: "5%",
+              }}>
+              <h1 style={{ color: "white", margin: 30 }}>No comments yet</h1>
+            </div>
           )}
         </div>
       )}
