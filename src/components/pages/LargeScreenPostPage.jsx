@@ -336,7 +336,6 @@ const LargeScreenPostPage = () => {
                   <p style={{ color: "white" }}>
                     Posted by: {author && author.name}
                   </p>
-                  <a href="/dashboard">Back to dashboard</a>
                   {user ? (
                     <>
                       <Button
@@ -378,6 +377,9 @@ const LargeScreenPostPage = () => {
                         onClick={() => save()}>
                         {savedState ? "Unsave" : "Save"}
                       </Button>
+                      <a href="/dashboard" style={{ color: "white" }}>
+                        Back to dashboard
+                      </a>
                     </>
                   ) : null}
 
