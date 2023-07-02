@@ -5,7 +5,7 @@ import { useNavigate, useLocation, useParams } from "react-router-dom";
 import "./post.css";
 import CommentPopup from "../CommentPopUp";
 import "./background.css";
-import { CircularProgress, Box } from "@mui/material";
+import { CircularProgress, Box, Hidden } from "@mui/material";
 import useWindowSize from "./helperFunction";
 const LargeScreenPostPage = () => {
   const { postId } = useParams();
@@ -267,7 +267,7 @@ const LargeScreenPostPage = () => {
   }
 
   return post ? (
-    <div className="gradient-background">
+    <div className="gradient-background" style={{ overflow: "hidden" }}>
       <Navbar
         bg="dark"
         variant="dark"
