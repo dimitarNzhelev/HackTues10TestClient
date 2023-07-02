@@ -9,14 +9,15 @@ import { CircularProgress, Box, Hidden } from "@mui/material";
 import useWindowSize from "./helperFunction";
 const LargeScreenPostPage = () => {
   const { postId } = useParams();
-  const [post, setPost] = useState({});
+  const location = useLocation();
+  const post = location.state.post;
   const navigate = useNavigate();
   const [user, setUser] = useState();
   const [likedState, setLikedState] = useState(false);
   const [comments, setComments] = useState([]);
   const [author, setAuthor] = useState();
-  const [totalLikes, setTotalLikes] = useState();
-  const [totalComments, setTotalComments] = useState();
+  const [totalLikes, setTotalLikes] = useState(post.totallikes);
+  const [totalComments, setTotalComments] = useState(post.totalcomments);
   const [showPopup, setShowPopup] = useState(false);
   const [editCommentId, setEditCommentId] = useState(null);
   const [editCommentText, setEditCommentText] = useState("");
@@ -26,6 +27,7 @@ const LargeScreenPostPage = () => {
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
 
   const size = useWindowSize();
+  console.log(size);
 
   const handleLogout = () => {
     axios
@@ -49,6 +51,11 @@ const LargeScreenPostPage = () => {
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
+            navigate("/auth/login");
+          }
+          if (post.visibility === "private") {
+            setLoading(false);
+            navigate("/auth/login");
           }
           setUser(res.data.user);
           axios
@@ -57,7 +64,6 @@ const LargeScreenPostPage = () => {
               { withCredentials: true }
             )
             .then((res) => {
-              setPost(res.data.post);
               setComments(res.data.comments);
               setTotalComments(res.data.post.totalcomments);
               setAuthor(res.data.user);
@@ -65,24 +71,18 @@ const LargeScreenPostPage = () => {
             .catch((err) => {
               console.error(err);
             });
-          if (post.visibility === "private") {
-            setLoading(false);
-            navigate("/auth/login");
-          }
-          console.log(user);
-          if (user) {
-            axios
-              .get(
-                `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/status`,
-                { withCredentials: true }
-              )
-              .then((res) => {
-                setLikedState(res.data.likeStatus);
-              })
-              .catch((err) => {
-                console.error(err);
-              });
-          }
+
+          axios
+            .get(
+              `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/like/${postId}/status`,
+              { withCredentials: true }
+            )
+            .then((res) => {
+              setLikedState(res.data.likeStatus);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
         }
       })
       .catch((err) => {
@@ -91,21 +91,20 @@ const LargeScreenPostPage = () => {
         }
       });
 
-    if (user) {
-      axios
-        .get(
-          `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/save/${postId}/status`,
-          { withCredentials: true }
-        )
-        .then((res) => {
-          setSavedState(res.data.savedStatus);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          setLoading(false);
-        });
-    }
+    axios
+      .get(
+        `https://lobster-app-2-2vuam.ondigitalocean.app/dashboard/posts/save/${postId}/status`,
+        { withCredentials: true }
+      )
+      .then((res) => {
+        setSavedState(res.data.savedStatus);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+
     setLoading(false);
 
     return () => {
