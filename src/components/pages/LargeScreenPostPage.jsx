@@ -323,10 +323,13 @@ const LargeScreenPostPage = () => {
             <div
               className="col-lg-6 col-md-6 col-sm-12"
               style={{ width: "100%" }}>
-              <div className="container  ">
+              <div className="container">
                 <div
                   style={{
                     alignSelf: "fkex-start",
+                    margin: "2%",
+                    backgroundColor: "#6774AF",
+                    borderRadius: 20,
                   }}>
                   <p style={{ color: "white" }}>Description:</p>
                   <p style={{ color: "white" }}>{post.description}</p>
