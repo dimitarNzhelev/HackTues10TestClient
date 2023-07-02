@@ -295,7 +295,7 @@ const SmallScreenPostPage = () => {
         <div className="col-lg-6 col-md-6 col-sm-12  ">
           <h1 style={{ color: "white" }}>{post.caption}</h1>
           <div className="container gradient-background">
-            <div className="textContainer" style={{ padding: 20 }}>
+            <div className="textContainer" style={{ padding: 20, margin: 20 }}>
               <p style={{ color: "white" }}>Description:</p>
               <p style={{ color: "white" }}>{post.description}</p>
               <p style={{ color: "white" }} id="total-likes">
@@ -378,7 +378,7 @@ const SmallScreenPostPage = () => {
           />
         </div>
       </div>
-      {comments && comments.length > 0 && (
+      {comments && comments.length > 0 ? (
         <div
           className="gradient-background"
           style={{
@@ -449,8 +449,9 @@ const SmallScreenPostPage = () => {
             </div>
           ))}
         </div>
+      ) : (
+        <h1 style={{ color: "white", margin: 30 }}>No comments yet</h1>
       )}
-      : (<h1 style={{ color: "white" }}>No comments yet</h1>)
     </div>
   ) : null;
 };

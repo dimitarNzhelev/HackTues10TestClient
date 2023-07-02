@@ -403,7 +403,7 @@ const LargeScreenPostPage = () => {
               </div>
             </div>
           </div>
-          {comments && comments.length > 0 && (
+          {comments && comments.length > 0 ? (
             <div
               className="custom-scrollbar"
               style={{
@@ -474,8 +474,9 @@ const LargeScreenPostPage = () => {
                 </div>
               ))}
             </div>
+          ) : (
+            <h1 style={{ color: "white", margin: 30 }}>No comments yet</h1>
           )}
-          : (<h1 style={{ color: "white" }}>No comments yet</h1>)
         </div>
       )}
     </div>
