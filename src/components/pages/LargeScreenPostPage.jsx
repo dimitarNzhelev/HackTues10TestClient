@@ -15,8 +15,8 @@ const LargeScreenPostPage = () => {
   const [likedState, setLikedState] = useState(false);
   const [comments, setComments] = useState([]);
   const [author, setAuthor] = useState();
-  const [totalLikes, setTotalLikes] = useState(post.totallikes);
-  const [totalComments, setTotalComments] = useState(post.totalcomments);
+  const [totalLikes, setTotalLikes] = useState();
+  const [totalComments, setTotalComments] = useState();
   const [showPopup, setShowPopup] = useState(false);
   const [editCommentId, setEditCommentId] = useState(null);
   const [editCommentText, setEditCommentText] = useState("");
@@ -26,7 +26,6 @@ const LargeScreenPostPage = () => {
   // naistina sujalqvam ako chetesh tozi kod. My eyes hurt :P
 
   const size = useWindowSize();
-  console.log(size);
 
   const handleLogout = () => {
     axios
@@ -50,10 +49,6 @@ const LargeScreenPostPage = () => {
       .then((res) => {
         if (isMounted) {
           if (res.data.user === null) {
-            if (post.visibility === "private") {
-              setLoading(false);
-              navigate("/auth/login");
-            }
           }
           setUser(res.data.user);
           axios
@@ -70,6 +65,11 @@ const LargeScreenPostPage = () => {
             .catch((err) => {
               console.error(err);
             });
+          if (post.visibility === "private") {
+            setLoading(false);
+            navigate("/auth/login");
+          }
+          console.log(user);
           if (user) {
             axios
               .get(
