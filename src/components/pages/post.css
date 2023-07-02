@@ -5,6 +5,25 @@
     }
 }
 
+@media (min-width: 1200px) {
+  .textContainer {
+    align-self: flex-start;
+    margin: 2%;
+    background-color: "#6774AF";
+    border-radius: 20;
+    padding: 2%;
+  }
+}
+
+@media (max-width: 1199px){
+  .textContainer {
+    align-self: flex-start;
+    margin: 0.5%;
+    background-color: "#6774AF";
+    border-radius: 20;
+    padding: 0.5%;
+  }
+}
 
 @media (max-width: 768px) {
     .imageContainer {
@@ -13,6 +32,7 @@
         align-items: center;
         width: 100%;
     }
+
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
