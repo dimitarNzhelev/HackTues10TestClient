@@ -384,25 +384,24 @@ const LargeScreenPostPage = () => {
                       </a>
                     </>
                   ) : null}
-
-                  {author && user && author.id === user.id && (
-                    <>
-                      <Button
-                        className="comment-button"
-                        style={{ margin: "2%" }}
-                        onClick={() => updatePost(post.id)}>
-                        Update Post
-                      </Button>
-                      <Button
-                        className="comment-button"
-                        style={{ margin: "2%" }}
-                        onClick={() => deletePost()}>
-                        Delete Post
-                      </Button>
-                    </>
-                  )}
                 </div>
               </div>
+              {author && user && author.id === user.id && (
+                <>
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => updatePost(post.id)}>
+                    Update Post
+                  </Button>
+                  <Button
+                    className="comment-button"
+                    style={{ margin: "2%" }}
+                    onClick={() => deletePost()}>
+                    Delete Post
+                  </Button>
+                </>
+              )}
             </div>
           </div>
           {comments && comments.length > 0 ? (
