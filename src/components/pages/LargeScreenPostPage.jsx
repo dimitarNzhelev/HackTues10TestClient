@@ -323,8 +323,8 @@ const LargeScreenPostPage = () => {
             <div
               className="col-lg-6 col-md-6 col-sm-12"
               style={{ width: "100%" }}>
-              <div className="container">
-                <div className="textContainer">
+              <div className="container textContainer">
+                <div>
                   <p style={{ color: "white" }}>Description:</p>
                   <p style={{ color: "white" }}>{post.description}</p>
                   <p style={{ color: "white" }} id="total-likes">
