@@ -408,7 +408,7 @@ const LargeScreenPostPage = () => {
               style={{
                 height: size.height * 0.92,
                 overflow: "scroll",
-                width: size.width * 0.3,
+                width: size.width * 0.5,
               }}>
               {comments.map((comment) => (
                 <div
