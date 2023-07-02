@@ -371,9 +371,7 @@ const SmallScreenPostPage = () => {
             </div>
           </div>
         </div>
-        <div
-          className="col-lg-6 col-md-6 col-sm-12   imageContainer"
-          style={{ marginBottom: "2%" }}>
+        <div className="col-lg-6 col-md-6 col-sm-12   imageContainer">
           <Image
             className="post-image "
             src={post.imageUrl}
