@@ -10,7 +10,7 @@ import useWindowSize from "./helperFunction";
 const LargeScreenPostPage = () => {
   const { postId } = useParams();
   const location = useLocation();
-  const post = location.state.post;
+  const [post, setPost] = useState(location.state.post);
   const navigate = useNavigate();
   const [user, setUser] = useState();
   const [likedState, setLikedState] = useState(false);
@@ -63,6 +63,7 @@ const LargeScreenPostPage = () => {
               { withCredentials: true }
             )
             .then((res) => {
+              setPost(res.data.post);
               setComments(res.data.comments);
               setTotalComments(res.data.post.totalcomments);
               setAuthor(res.data.user);
