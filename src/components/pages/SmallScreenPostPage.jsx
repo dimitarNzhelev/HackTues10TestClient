@@ -289,7 +289,7 @@ const SmallScreenPostPage = () => {
       </Navbar>
 
       <div
-        className="gradient-background split"
+        className="only-gradient"
         style={{
           padding: "2%",
         }}>
