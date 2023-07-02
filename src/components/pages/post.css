@@ -5,7 +5,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-height: 1200px) {
 .textContainer {
   align-self: flex-start;
   margin: 2%;
@@ -15,7 +15,7 @@
 }
 }
 
-@media (max-width: 1199px){
+@media (max-height: 1199px){
 .textContainer {
   align-self: flex-start;
   margin: 0.5%;
